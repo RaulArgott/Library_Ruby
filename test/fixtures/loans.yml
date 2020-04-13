@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  book: one
+  loaned_on: 2020-04-03
+  due_date: 2020-04-03
+  returned_on: 2020-04-03
+  loan_state: MyString
+
+two:
+  user: two
+  book: two
+  loaned_on: 2020-04-03
+  due_date: 2020-04-03
+  returned_on: 2020-04-03
+  loan_state: MyString

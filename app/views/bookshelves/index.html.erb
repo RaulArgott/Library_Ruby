@@ -1,0 +1,5 @@
+<% @bookshelves.each do |bookshelf| %>
+<p><%= bookshelf.number %> <%= bookshelf.side %>
+  <%= link_to 'Details', bookshelf_path(bookshelf) %></p>
+<% end %>
+<%= link_to 'New', new_bookshelf_path%>

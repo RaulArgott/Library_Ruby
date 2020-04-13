@@ -1,0 +1,2 @@
+<p><%= @author.name %> <%= @author.last_name %></p>
+<p><%= link_to 'Edit', edit_author_path(@author) %> <%= link_to  "Delete", author_path(@author), method: :delete, data: {confirm: 'Are you sure?'} %> </p>

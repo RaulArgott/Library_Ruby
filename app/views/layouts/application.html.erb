@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>LibraryR</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <% if current_user %>
+    <%= render 'layouts/navbar'%>  
+    <%= render 'layouts/alerts' %>
+    <div class="container-fluid">
+      <div class="row">
+      <%= render  "layouts/sidebar" %>
+       <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+        <%= yield %>
+        </main>
+      </div>
+    </div>
+    <% else %>
+      <%= yield %>
+    <%end%>
+    <%= render  'layouts/footer' %>
+  </body>
+</html>

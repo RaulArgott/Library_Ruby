@@ -1,0 +1,2 @@
+<p><%= @bookshelf.number %> <%= @bookshelf.side %></p>
+<p><%= link_to 'Edit', edit_bookshelf_path(@bookshelf) %> <%= link_to  "Delete", bookshelf_path(@bookshelf), method: :delete, data: {confirm: 'Are you sure?'} %> </p>
