@@ -8,71 +8,47 @@
             </a>
           </li>
           <li class="nav-item">            
-              <%= link_to  books_path, :class => current_page?(controller:'books', :action => 'index') ? "nav-link  active" : "nav-link" do %>  
+              <%= link_to  books_path, :class => current_controller("books") do %>  
                 <span data-feather="books"></span>
-                Books
-                <% if current_page?(controller:'books', :action => 'index') %>
-                  <span class="sr-only">(current)</span>
-                <% end %> 
-              <% end %>       
+                Books                
+              <% end %>                
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="shopping-cart"></span>
-              Products
-            </a>
+          <li class="nav-item">            
+              <%= link_to  loans_path, :class => current_controller("loans") do %>  
+                <span data-feather="loans"></span>
+                Loans                
+              <% end %>                
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="users"></span>
-              Customers
-            </a>
+          <li class="nav-item">            
+              <%= link_to  bookshelves_path, :class => current_controller("bookshelves") do %>  
+                <span data-feather="bookshelves"></span>
+                Bookshelves                
+              <% end %>                
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="bar-chart-2"></span>
-              Reports
-            </a>
+          <li class="nav-item">            
+              <%= link_to  authors_path, :class => current_controller("authors") do %>  
+                <span data-feather="authors"></span>
+                Authors        
+              <% end %>                
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="layers"></span>
-              Integrations
-            </a>
+          <li class="nav-item">            
+              <%= link_to  publishers_path, :class => current_controller("publishers") do %>  
+                <span data-feather="publishers"></span>
+                Publishers     
+              <% end %>                
           </li>
-        </ul>
-
-        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-          <span>Saved reports</span>
-          <a class="d-flex align-items-center text-muted" href="#" aria-label="Add a new report">
-            <span data-feather="plus-circle"></span>
-          </a>
-        </h6>
-        <ul class="nav flex-column mb-2">
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="file-text"></span>
-              Current month
-            </a>
+          <li class="nav-item">            
+              <%= link_to  user_session_path, :class => current_controller("users") do %>  
+                <span data-feather="users"></span>
+                Students                
+              <% end %>                
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="file-text"></span>
-              Last quarter
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="file-text"></span>
-              Social engagement
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="file-text"></span>
-              Year-end sale
-            </a>
-          </li>
-        </ul>
+          <li class="nav-item">            
+              <%= link_to  favourites_path, :class => current_controller("favourites") do %>  
+                <span data-feather="favourites"></span>
+                Favourites     
+              <% end %>                
+          </li>          
+        </ul>        
       </div>
     </nav>
