@@ -24,6 +24,9 @@ class BooksController < ApplicationController
     end
     def edit
         @book = find_book_id
+        @authors = Author.all
+        @publishers = Publisher.all
+        @bookshelves = Bookshelf.all 
     end    
     def update
         @book = find_book_id

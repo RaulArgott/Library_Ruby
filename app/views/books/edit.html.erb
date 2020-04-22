@@ -1,7 +1,12 @@
-<%= form_for(@publisher) do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <%= f.label :city %>
-  <%= f.text_field :city %>
+<%= bootstrap_form_for(@book) do |f| %>
+  <%= f.text_field :code, value: @book.code %>
+  <%= f.text_field :name, value: @book.name %>
+  <%= f.select :publisher, @publishers.collect {|publisher| [publisher.name+" "+publisher.city, publisher.id]}, selected: @book.publisher.id %>
+  <%= f.select :author, @authors.collect {|author| [author.name+" "+author.last_name, author.id]}, selected: @book.author.id %>
+  <%= f.select :genre, ['Fantasy','Adventure','Romance','Contemporary','Dystopian','Mystery','Horror','Thriller','Paranormal','Historical fiction','Science Fiction','Memoir','Cooking','Art','Self-help / Personal Development','Motivational','Health','History','Travel','Guide', 'How-to','Families & Relationships','Humor','Children’s'], selected: @book.genre %>
+  <%= f.number_field :pages, value: @book.pages, in: 1...2000  %>
+  <%= f.select :year, (Time.now.year).downto(Time.now.year - 200).to_a, selected: @book.year %>
+  <%= f.select :language , ['English','Spanish'], selected: @book.language %>
+  <%= f.select :bookshelf, @bookshelves.collect {|bookshelf| [bookshelf.number, bookshelf.id]}, selected: @book.bookshelf.id %>
   <%= f.submit %>
 <% end %>
