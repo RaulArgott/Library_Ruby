@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'users/index'
+  match '/users',   to: 'users#index',   via: 'get'
 
   resources :loans
   resources :favourites

@@ -1,2 +1,26 @@
-<h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
+<h1>Students list</h1>
+<table class="table table-striped table-inverse table-responsive">
+    <thead class="thead-inverse">
+        <tr>
+            <th>User</th>
+            <th>Created at</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+            <% @users.each do |user| %>
+            <tr>
+                <td>
+                    <%= user.email %>
+                </td>
+                <td>
+                    <%= user.created_at %>
+                </td>
+                <td>
+                    Detalles
+                </td>
+            </tr>
+            <% end %>
+        </tbody>
+</table>
+
