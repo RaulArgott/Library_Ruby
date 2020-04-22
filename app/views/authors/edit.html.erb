@@ -1,7 +1,5 @@
-<%= form_for(@author) do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <%= f.label :last_name %>
-  <%= f.text_field :last_name %>
+<%= bootstrap_form_for(@author) do |f| %>
+  <%= f.text_field :name, value: @author.name %>
+  <%= f.text_field :last_name, value: @author.last_name %>
   <%= f.submit %>
 <% end %>
