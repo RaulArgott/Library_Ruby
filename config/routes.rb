@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   match '/users',   to: 'users#index',   via: 'get'
-
+  get 'users/:id' => 'users#show', as: :user
+  resources :users
   resources :loans
   resources :favourites
   resources :tags

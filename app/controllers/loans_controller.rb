@@ -7,8 +7,8 @@ class LoansController < ApplicationController
     end
     def new
         @loan = Loan.new
-        @book = Book.new
-        @user = User.new
+        @book = Books.all
+        @user = Users.all
     end
     def create
         
