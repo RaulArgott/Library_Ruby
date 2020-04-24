@@ -18,4 +18,6 @@
 //= require jquery_tables
 //= require bootstrap_tables
 //= requiere tables
+//= require selectize
+//= requiere select_search
 //= require_tree .

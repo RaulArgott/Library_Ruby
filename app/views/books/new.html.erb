@@ -4,7 +4,7 @@
   <%= f.select :publisher, @publishers.collect {|publisher| [publisher.name+" "+publisher.city, publisher.id]} %>
   <%= f.select :author, @authors.collect {|author| [author.name+" "+author.last_name, author.id]} %>
   <%= f.select :genre, ['Fantasy','Adventure','Romance','Contemporary','Dystopian','Mystery','Horror','Thriller','Paranormal','Historical fiction','Science Fiction','Memoir','Cooking','Art','Self-help / Personal Development','Motivational','Health','History','Travel','Guide', 'How-to','Families & Relationships','Humor','Children’s'] %>
-  <%= f.number_field :pages, '1', within: 1..2000  %>
+  <%= f.number_field :pages, value: '1', within: 1..2000  %>
   <%= f.select :year, (Time.now.year).downto(Time.now.year - 200).to_a %>
   <%= f.select :language , [['English','English'],['Spanish','Spanish']]%>
   <%= f.select :bookshelf, @bookshelves.collect {|bookshelf| [bookshelf.number, bookshelf.id]} %>
