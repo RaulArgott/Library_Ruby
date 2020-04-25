@@ -10,8 +10,12 @@ class AuthorsController < ApplicationController
     end
     def create
         @author = Author.new(post_params(:name, :last_name))
-        @author.save
-        redirect_to author_path(@author)
+        if @author.save
+            render json: @author
+        else
+            render json: {errors: @author.errors.full.messages}
+        end
+        
     end
     def edit
         @author = find_author_id

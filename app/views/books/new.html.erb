@@ -1,13 +1,13 @@
 <%= bootstrap_form_for(@book) do |f| %>
   <%= f.text_field :code %>
   <%= f.text_field :name %>
-  <%= f.select :publisher, @publishers.collect {|publisher| [publisher.name+" "+publisher.city, publisher.id]}, class: "selectize" %>
-  <%= f.select :author, @authors.collect {|author| [author.name+" "+author.last_name, author.id]}, class: "selectize"  %>
-  <%= f.select :genre, ['Fantasy','Adventure','Romance','Contemporary','Dystopian','Mystery','Horror','Thriller','Paranormal','Historical fiction','Science Fiction','Memoir','Cooking','Art','Self-help / Personal Development','Motivational','Health','History','Travel','Guide', 'How-to','Families & Relationships','Humor','Children’s'], class: "selectize"  %>
+  <%= f.select :publisher, @publishers.collect {|publisher| [publisher.name+" "+publisher.city, publisher.id]},{include_blank: true , class: "selectize"} %>
+  <%= f.select :author, @authors.collect {|author| [author.name+" "+author.last_name, author.id]}, {include_blank: true , class: "selectize"}  %>
+  <%= f.select :genre, ['Fantasy','Adventure','Romance','Contemporary','Dystopian','Mystery','Horror','Thriller','Paranormal','Historical fiction','Science Fiction','Memoir','Cooking','Art','Self-help / Personal Development','Motivational','Health','History','Travel','Guide', 'How-to','Families & Relationships','Humor','Children’s'], {include_blank: true , class: "selectize"}  %>
   <%= f.number_field :pages, value: '1', within: 1..2000  %>
-  <%= f.select :year, (Time.now.year).downto(Time.now.year - 200).to_a, class: "selectize"  %>
-  <%= f.select :language , [['English','English'],['Spanish','Spanish']]%>
-  <%= f.select :bookshelf, @bookshelves.collect {|bookshelf| [bookshelf.number, bookshelf.id]} %>
+  <%= f.select :year, (Time.now.year).downto(Time.now.year - 200).to_a, {include_blank: true , class: "selectize"}  %>
+  <%= f.select :language , [['English','English'],['Spanish','Spanish']], {include_blank: true , class: "selectize"}%>
+  <%= f.select :bookshelf, @bookshelves.collect {|bookshelf| [bookshelf.number, bookshelf.id]}, {include_blank: true , class: "selectize"} %>
   <%= f.submit %>
 <% end %>
 
@@ -24,13 +24,11 @@
         <%= bootstrap_form_for Author.new do |f| %>
           <%= f.text_field :name %>
           <%= f.text_field :last_name %>
-          <%= f.submit %>
+          <div class="modal-footer">
+          <%= f.submit class: "btn btn-secondary" , data: { disable_with: false }%>
+          </div>
         <% end %>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary">Save changes</button>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      </div>
+      </div>   
     </div>
   </div>
 </div>
