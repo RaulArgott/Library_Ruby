@@ -1,5 +1,3 @@
 $(document).ready(function() {
-    $('select').selectize({
-        sortField: 'text'
-    });
+    $('select').selectize();
 });

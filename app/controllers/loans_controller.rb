@@ -7,14 +7,13 @@ class LoansController < ApplicationController
     end
     def new
         @loan = Loan.new
-        @book = Books.all
-        @user = Users.all
+        @books = Book.all
+        @users = User.where(admin: false)
     end
     def create
         
-        @loan = Loan.new(post_params(:due_date, :loan_state))
-        @book = Book.find(post_params(:book)[:book])
-        @user = User.find(post_params(:user)[:user])    
+        @loan = Loan.new(post_params(:due_date, :loan_state, book_ids: []))
+        @loan.user = User.find(post_params(:user)[:user])    
         @loan.save
         redirect_to loan_path(@loan)
     end

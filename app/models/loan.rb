@@ -1,4 +1,5 @@
 class Loan < ApplicationRecord
   belongs_to :user
-  belongs_to :book
+  has_many :book_loan
+  has_many :book, through: :book_loan
 end

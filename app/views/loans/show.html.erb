@@ -1,0 +1,6 @@
+<p><%= @loan.due_date %> <%= @loan.created_at.to_date %> <%= @loan.user %> </p> 
+<p><% @loan.book.each do |book| %>
+<%= book.name %>
+<% end %>
+ </p>
+<p> <%= link_to  "Back", loans_path %> </p>

@@ -1,12 +1,36 @@
 <%= bootstrap_form_for(@book) do |f| %>
   <%= f.text_field :code %>
   <%= f.text_field :name %>
-  <%= f.select :publisher, @publishers.collect {|publisher| [publisher.name+" "+publisher.city, publisher.id]} %>
-  <%= f.select :author, @authors.collect {|author| [author.name+" "+author.last_name, author.id]} %>
-  <%= f.select :genre, ['Fantasy','Adventure','Romance','Contemporary','Dystopian','Mystery','Horror','Thriller','Paranormal','Historical fiction','Science Fiction','Memoir','Cooking','Art','Self-help / Personal Development','Motivational','Health','History','Travel','Guide', 'How-to','Families & Relationships','Humor','Children’s'] %>
+  <%= f.select :publisher, @publishers.collect {|publisher| [publisher.name+" "+publisher.city, publisher.id]}, class: "selectize" %>
+  <%= f.select :author, @authors.collect {|author| [author.name+" "+author.last_name, author.id]}, class: "selectize"  %>
+  <%= f.select :genre, ['Fantasy','Adventure','Romance','Contemporary','Dystopian','Mystery','Horror','Thriller','Paranormal','Historical fiction','Science Fiction','Memoir','Cooking','Art','Self-help / Personal Development','Motivational','Health','History','Travel','Guide', 'How-to','Families & Relationships','Humor','Children’s'], class: "selectize"  %>
   <%= f.number_field :pages, value: '1', within: 1..2000  %>
-  <%= f.select :year, (Time.now.year).downto(Time.now.year - 200).to_a %>
+  <%= f.select :year, (Time.now.year).downto(Time.now.year - 200).to_a, class: "selectize"  %>
   <%= f.select :language , [['English','English'],['Spanish','Spanish']]%>
   <%= f.select :bookshelf, @bookshelves.collect {|bookshelf| [bookshelf.number, bookshelf.id]} %>
   <%= f.submit %>
 <% end %>
+
+<div class="modal fade author" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= bootstrap_form_for Author.new do |f| %>
+          <%= f.text_field :name %>
+          <%= f.text_field :last_name %>
+          <%= f.submit %>
+        <% end %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
