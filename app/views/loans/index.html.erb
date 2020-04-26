@@ -10,6 +10,8 @@
       </th>
       <th class="th-sm">Borrower
       </th>
+      <th class="th-sm">Loan State
+      </th>
       <th class="th-sm">Action
       </th>
     </tr>
@@ -21,9 +23,13 @@
       </td>
       <td><%= loan.due_date %>
       </td>
-      <td><%= loan.book.name %>
+      <td><% loan.book_ids do |book_id| %>
+      <%= Book.find(book_id).name %>
+      <% end %>
       </td>
       <td><%= loan.user.email %>
+      </td>
+      <td><%= loan.loan_state %>
       </td>
       <td><%= link_to  "Details", loan_path(loan) %> 
       </td>

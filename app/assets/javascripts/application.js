@@ -15,9 +15,6 @@
 //= require jquery3
 //= require popper
 //= require bootstrap
-//= require jquery_tables
-//= require bootstrap_tables
-//= requiere tables
 //= require selectize
-//= requiere select_search
+//= require jquery_tables
 //= require_tree .

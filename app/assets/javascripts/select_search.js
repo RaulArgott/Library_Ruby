@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).on('turbolinks:load', function() {
     var selectizeCallback = null;
     $(".modal").on('hide.bs.modal', function(e) {
         if (selectizeCallback != null) {

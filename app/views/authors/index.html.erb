@@ -1,5 +1,21 @@
-<% @authors.each do |author| %>
-<p><%= author.name %> <%= author.last_name %>
-  <%= link_to 'Details', author_path(author) %></p>
-<% end %>
+<table id="example" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+  <thead>
+    <tr>
+      <th class="th-sm">Name
+      </th>
+      <th class="th-sm">Action
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @authors.each do |author| %>
+    <tr>
+      <td><%= author.name %> <%= author.last_name%>
+      </td>
+      <td><%= link_to 'Details', author_path(author) %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
 <%= link_to  "New", new_author_path %>
