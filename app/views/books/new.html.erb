@@ -1,5 +1,4 @@
 <%= bootstrap_form_for(@book) do |f| %>
-  <%= f.text_field :code %>
   <%= f.text_field :name %>
   <%= f.select :publisher, @publishers.collect {|publisher| [publisher.name+" "+publisher.city, publisher.id]},{include_blank: true , class: "selectize"} %>
   <%= f.select :author, @authors.collect {|author| [author.name+" "+author.last_name, author.id]}, {include_blank: true , class: "selectize"}  %>
@@ -8,6 +7,7 @@
   <%= f.select :year, (Time.now.year).downto(Time.now.year - 200).to_a, {include_blank: true , class: "selectize"}  %>
   <%= f.select :language , [['English','English'],['Spanish','Spanish']], {include_blank: true , class: "selectize"}%>
   <%= f.select :bookshelf, @bookshelves.collect {|bookshelf| [bookshelf.number, bookshelf.id]}, {include_blank: true , class: "selectize"} %>
+  <%= f.number_field :copies, value: '1', within: 1..100  %>
   <%= f.submit %>
 <% end %>
 

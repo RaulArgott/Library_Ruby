@@ -11,14 +11,13 @@ class BooksController < ApplicationController
         @publishers = Publisher.all
         @bookshelves = Bookshelf.all 
     end
-    def create
-        
-        @book = Book.new(post_params(:code, :name, :genre, :pages, :year, :language))
+    def create        
+        @book = Book.new(post_params(:name, :genre, :pages, :year, :language, :copies))        
         @book.publisher = Publisher.find(post_params(:publisher)[:publisher])
         @book.author = Author.find(post_params(:author)[:author])
         @book.bookshelf = Bookshelf.find(post_params(:bookshelf)[:bookshelf])
-        
-
+        @book.available = params[:copies]
+        @book.code = @book.name[0].upcase + @book.author.name[0].upcase + @book.author.last_name[0].upcase + @book.publisher.name[0].upcase + @book.publisher.city[0].upcase + generate_random_string()
         @book.save
         redirect_to book_path(@book)
     end
@@ -30,7 +29,12 @@ class BooksController < ApplicationController
     end    
     def update
         @book = find_book_id
-        @book.update(post_params(:name, :city))
+        @book.update(post_params(:name, :genre, :pages, :year, :language, :copies))
+        @book.publisher = Publisher.find(post_params(:publisher)[:publisher])
+        @book.author = Author.find(post_params(:author)[:author])
+        @book.bookshelf = Bookshelf.find(post_params(:bookshelf)[:bookshelf])
+        @book.code = @book.name[0].upcase + @book.author.name[0].upcase + @book.author.last_name[0].upcase + @book.publisher.name[0].upcase + @book.publisher.city[0].upcase + generate_random_string()
+        @book.save
         redirect_to book_path(@book)
     end
     def destroy
@@ -39,7 +43,17 @@ class BooksController < ApplicationController
         redirect_to books_path
     end
 
-    private    
+    private  
+    def generate_random_string(length=3)
+        string = ""
+        chars = ("A".."Z").to_a
+        numbers = ("0".."9").to_a
+        length.times do
+          string << chars[rand(chars.length-1)]
+          string << numbers[rand(numbers.length-1)]
+        end
+        string
+      end  
     def all_books
         Book.all
     end

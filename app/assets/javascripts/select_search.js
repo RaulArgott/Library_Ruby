@@ -16,7 +16,7 @@ $(document).on('turbolinks:load', function() {
             success: function(response) {
                 selectizeCallback({
                     value: response.id,
-                    text: response.name
+                    text: response.name + " " + response.last_name
                 });
                 selectizeCallback = null;
                 $('.author').modal('toggle');
@@ -32,5 +32,8 @@ $(document).on('turbolinks:load', function() {
             $('#author_name').val(input);
         }
     });
-    $('select').selectize();
+    $('select').selectize({
+        selectOnTab: true,
+        sortField: 'text'
+    });
 });

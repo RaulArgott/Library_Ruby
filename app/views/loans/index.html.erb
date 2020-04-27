@@ -23,8 +23,8 @@
       </td>
       <td><%= loan.due_date %>
       </td>
-      <td><% loan.book_ids do |book_id| %>
-      <%= Book.find(book_id).name %>
+      <td><% loan.book.each do |book| %>
+      <p><%= book.name %> </p>
       <% end %>
       </td>
       <td><%= loan.user.email %>
