@@ -1,3 +1,5 @@
+var selectizeVarModal = null
+var selectizeVar = null
 $(document).on('turbolinks:load', function() {
     var selectizeCallback = null;
     $(".modal").on('hide.bs.modal', function(e) {
@@ -36,4 +38,7 @@ $(document).on('turbolinks:load', function() {
         selectOnTab: true,
         sortField: 'text'
     });
+});
+$(document).on('turbolinks:before-cache', function() { // this approach corrects the select 2 to be duplicated when clicking the back button.
+    $('select').selectize('destroy');
 });
