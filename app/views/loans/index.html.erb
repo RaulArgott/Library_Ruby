@@ -18,7 +18,7 @@
   </thead>
   <tbody>
     <% @loans.each do |loan| %>
-    <tr>
+    <tr class="<%= state(loan) %>" >
       <td><%= loan.created_at.to_date %>
       </td>
       <td><%= loan.due_date %>

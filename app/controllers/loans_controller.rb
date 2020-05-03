@@ -1,4 +1,5 @@
 class LoansController < ApplicationController
+    helper_method :state
     def index
         @loans = all_loans
     end
@@ -30,6 +31,13 @@ class LoansController < ApplicationController
         @loan.destroy
         redirect_to loans_path
     end
+    def state(loan)
+        if loan.loan_state == 'Pending'
+            return 'table-warning'
+        elsif loan.loan_state == 'Delayed'
+            return 'table-danger'
+        end
+    end
     private    
     def all_loans
         Loan.all
@@ -40,4 +48,5 @@ class LoansController < ApplicationController
     def post_params(*args)
         params.require(:loan).permit(*args)
     end
+   
 end

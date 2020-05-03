@@ -1,7 +1,7 @@
 <%= bootstrap_form_for(@loan) do |f| %>
 	<%= f.date_field :due_date%>
 	<%= f.select :loan_state, ['Loaned', 'Pending', 'Delayed', 'Returned'] %>
-  <%= f.select :book_ids, @books.collect {|book| [book.name, book.id]}, {}, { multiple: true, class: "selectize" } %>
+  <%= f.select :book_ids, @books.collect {|book| [book.code, book.id]}, {}, { multiple: true, class: "selectize" } %>
 	<%= f.select :user, @users.collect {|user| [user.email, user.id]} %>
   <%= f.submit %>
 <% end %>

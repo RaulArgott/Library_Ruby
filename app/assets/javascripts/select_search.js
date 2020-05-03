@@ -27,6 +27,7 @@ $(document).on('turbolinks:load', function() {
     });
 
     $('#book_author').selectize({
+        maxItems: 3,
         create: function(input, callback) {
             selectizeCallback = callback;
             $('.author').modal();
@@ -35,6 +36,8 @@ $(document).on('turbolinks:load', function() {
         }
     });
     $('select').selectize({
+
+        maxItems: 3,
         selectOnTab: true,
         sortField: 'text'
     });
