@@ -8,13 +8,15 @@
   </head>
 
   <body>
+  
     <% if current_user %>
     <%= render 'layouts/navbar'%>  
-    <%= render 'layouts/alerts' %>
     <div class="container-fluid">
       <div class="row">
       <%= render  "layouts/sidebar" %>
        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+       
+    <%= render 'layouts/alerts' %>
         <%= yield %>
         </main>
       </div>

@@ -20,7 +20,8 @@ class LoansController < ApplicationController
     end
     def edit
         @loan = find_loan_id
-    end    
+    end 
+      
     def update
         @loan = find_loan_id
         @loan.update(post_params(:name, :city))

@@ -1,6 +1,10 @@
 class BooksController < ApplicationController
+    
     def index
         @books = all_books
+
+        flash.now[:notice] = "We have exactly #{@books.size} books available."
+
     end
     def show
         @book = find_book_id
@@ -18,8 +22,12 @@ class BooksController < ApplicationController
         @book.bookshelf = Bookshelf.find(post_params(:bookshelf)[:bookshelf])
         @book.available = params[:copies]
         @book.code = @book.name[0].upcase + @book.author.name[0].upcase + @book.author.last_name[0].upcase + @book.publisher.name[0].upcase + @book.publisher.city[0].upcase + generate_random_string()
-        @book.save
+        if @book.save
         redirect_to book_path(@book)
+        else
+            flash[:alert] = "Something gone wrong!"
+            redirect_to new_book_path
+        end
     end
     def edit
         @book = find_book_id

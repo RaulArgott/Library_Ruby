@@ -1,3 +1,11 @@
+<% if @book.errors.any? %>
+  <h2>Some things you can fix!</h2>
+  <ul>
+    <% @post.errors.full_messages do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
 <%= bootstrap_form_for(@book) do |f| %>
   <%= f.text_field :name %>
   <%= f.select :publisher, @publishers.collect {|publisher| [publisher.name+" "+publisher.city, publisher.id]},{include_blank: true , class: "selectize"} %>

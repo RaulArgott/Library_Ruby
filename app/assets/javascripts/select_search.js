@@ -36,8 +36,6 @@ $(document).on('turbolinks:load', function() {
         }
     });
     $('select').selectize({
-
-        maxItems: 3,
         selectOnTab: true,
         sortField: 'text'
     });
