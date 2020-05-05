@@ -6,7 +6,11 @@
       </th>
       <th class="th-sm">Book
       </th>
+      <th class="th-sm">Author
+      </th>
       <th class="th-sm">Publisher
+      </th>
+      <th class="th-sm">City
       </th>
       <th class="th-sm">Action
       </th>
@@ -19,7 +23,11 @@
       </td>
       <td><%= book.name %>
       </td>
+      <td><%= book.author.name %> <%= book.author.last_name %>
+      </td>
       <td><%= book.publisher.name %>
+      </td>
+      <td><%= book.publisher.city %>
       </td>
       <td><%= link_to 'Details', book_path(book) %>
       </td>

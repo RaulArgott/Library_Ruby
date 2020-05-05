@@ -10,8 +10,11 @@ class PublishersController < ApplicationController
     end
     def create
         @publisher = Publisher.new(post_params(:name, :city))
-        @publisher.save
-        redirect_to publisher_path(@publisher)
+        if @publisher.save
+            render json: @publisher
+        else
+            render json: {errors: @publisher.errors.full.messages}
+        end
     end
     def edit
         @publisher = find_publisher_id

@@ -1,5 +1,3 @@
-var selectizeVarModal = null
-var selectizeVar = null
 $(document).on('turbolinks:load', function() {
     var selectizeCallback = null;
     $(".modal").on('hide.bs.modal', function(e) {
@@ -27,7 +25,6 @@ $(document).on('turbolinks:load', function() {
     });
 
     $('#book_author').selectize({
-        maxItems: 3,
         create: function(input, callback) {
             selectizeCallback = callback;
             $('.author').modal();
@@ -35,11 +32,36 @@ $(document).on('turbolinks:load', function() {
             $('#author_name').val(input);
         }
     });
+
+    $('#new_publisher').on('submit', function(e) {
+        e.preventDefault();
+        $.ajax({
+            method: "POST",
+            url: $(this).attr('action'),
+            data: $(this).serialize(),
+            success: function(response) {
+                selectizeCallback({
+                    value: response.id,
+                    text: response.name + ", " + response.city
+                });
+                selectizeCallback = null;
+                $('.publisher').modal('toggle');
+            }
+        });
+    });
+
+    $('#book_publisher').selectize({
+        create: function(input, callback) {
+            selectizeCallback = callback;
+            $('.publisher').modal();
+            $('#new_publisher').trigger('reset');
+            $('#publisher_name').val(input);
+        }
+    });
+
+
     $('select').selectize({
         selectOnTab: true,
         sortField: 'text'
     });
-});
-$(document).on('turbolinks:before-cache', function() { // this approach corrects the select 2 to be duplicated when clicking the back button.
-    $('select').selectize('destroy');
 });

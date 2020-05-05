@@ -1,6 +1,7 @@
 class AuthorsController < ApplicationController
     def index
         @authors = all_authors
+        flash.now[:notice] = "We have exactly #{@authors.size} authors available."
     end
     def show
         @author = find_author_id
