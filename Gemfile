@@ -10,6 +10,8 @@ gem 'bootstrap', '~> 4.4.1'
 gem 'jquery-rails'
 gem "bootstrap_form", "~> 4.0"
 gem "selectize-rails"
+gem 'whenever'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.7'
 # Use sqlite3 as the database for Active Record

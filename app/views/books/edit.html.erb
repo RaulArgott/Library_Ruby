@@ -8,6 +8,7 @@
   <%= f.select :language , ['English','Spanish'], selected: @book.language %>
   <%= f.select :bookshelf, @bookshelves.collect {|bookshelf| [bookshelf.number, bookshelf.id]}, selected: @book.bookshelf.id %>
   <%= f.submit %>
+  <%= button_to 'Delete', book_path(@book), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger' %>
 <% end %>
 
 <%= render  "books/newauthor" %>

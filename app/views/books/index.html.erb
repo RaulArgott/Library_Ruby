@@ -29,7 +29,7 @@
       </td>
       <td><%= book.publisher.city %>
       </td>
-      <td><%= link_to 'Details', book_path(book) %>
+      <td><%= link_to 'Edit', edit_book_path(book), class: 'btn btn-primary btn-sm btn-block' %>
       </td>
     </tr>
     <% end %>

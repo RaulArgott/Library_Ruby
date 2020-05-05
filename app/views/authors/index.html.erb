@@ -3,6 +3,8 @@
     <tr>
       <th class="th-sm">Name
       </th>
+      <th class="th-sm">Last Name
+      </th>
       <th class="th-sm">Action
       </th>
     </tr>
@@ -10,9 +12,11 @@
   <tbody>
     <% @authors.each do |author| %>
     <tr>
-      <td><%= author.name %> <%= author.last_name%>
+      <td><%= author.name %>
       </td>
-      <td><%= link_to 'Details', author_path(author) %>
+      <td><%= author.last_name%>
+      </td>
+      <td><%= link_to 'Edit', edit_author_path(author), class: 'btn btn-primary btn-sm btn-block' %>
       </td>
     </tr>
     <% end %>

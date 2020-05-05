@@ -2,4 +2,5 @@
   <%= f.text_field :name, value: @author.name %>
   <%= f.text_field :last_name, value: @author.last_name %>
   <%= f.submit %>
+  <%= button_to 'Delete', author_path(@author), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger' %>
 <% end %>
