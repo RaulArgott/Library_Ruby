@@ -15,13 +15,13 @@
                     <%= user.email %>
                 </td>
                 <td>
-                    <%= user.created_at %>
+                    <%= user.created_at.to_date %>
                 </td>
                 <td>
                     <%= user.admin %>
                 </td>
                 <td>
-                    <%= link_to  "Details", '#' %>
+                    <%= link_to  "Delete", users_admin_path(user), method: :delete, data: { confirm: 'Are you sure?' } %>
                 </td>
             </tr>
             <% end %>

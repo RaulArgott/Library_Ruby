@@ -20,7 +20,7 @@ Rails.application.routes.draw do
       root 'home#index', as: :unauthenticated_root
     end
   end
-  post 'users/create_user' => 'users#create', as: :create_user
+  post 'users_admin/create_user' => 'users#create', as: :create_user
   root to:'home#index'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

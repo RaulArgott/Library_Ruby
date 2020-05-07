@@ -4,6 +4,17 @@ Rails.application.configure do
   # Code is not reloaded between requests.
   config.cache_classes = true
 
+  #Email configuration
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+  :address        => 'smtp.gmail.com',
+    :port           => '587',
+    :authentication => :plain,
+    :user_name      => "argott.tester@gmail.com",
+    :password       => "#Tester19#",
+    :domain         => 'gmail.com',
+    :enable_starttls_auto => true
+    }
   # Eager load code on boot. This eager loads most of Rails and
   # your application in memory, allowing both threaded web servers
   # and those relying on copy on write to perform better.
@@ -59,7 +70,7 @@ Rails.application.configure do
 
   # Use a real queuing backend for Active Job (and separate queues per environment)
   # config.active_job.queue_adapter     = :resque
-  # config.active_job.queue_name_prefix = "library_r_#{Rails.env}"
+  # config.active_job.queue_name_prefix = "ola_#{Rails.env}"
   config.action_mailer.perform_caching = false
 
   # Ignore bad email addresses and do not raise email delivery errors.

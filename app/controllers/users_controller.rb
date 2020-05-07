@@ -2,14 +2,25 @@ class UsersController < ApplicationController
     before_action :authorize_admin, only: :create
     def index
         @users = User.all
+        respond_to do |format|
+            format.html
+            format.csv { send_data @users.to_csv, filename: "users-#{Date.today}.csv" }
+        end
     end
     def create
          @user = User.new(user_params)
          if @user.save
-             redirect_to users_admin_index_path, notice: "User succesfully created!" 
+            UsersMailer.with(user: @user).mail_user.deliver_now	
+            redirect_to users_admin_index_path, notice: "User succesfully created!" 
          else
              render 'users/new'
          end
+    end
+    def destroy
+        p params[:id]
+        User.find(params[:id]).destroy
+        flash[:success] = "User destroyed."
+        redirect_to("/users_admin")
     end
   
     private
