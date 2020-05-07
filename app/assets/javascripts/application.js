@@ -14,7 +14,6 @@
 //= require turbolinks
 //= require jquery3
 //= require popper
-//= require bootstrap
-//= require selectize
-//= require jquery_tables
+//= require bootstrap-sprockets
 //= require_tree .
+//= require owl.carousel

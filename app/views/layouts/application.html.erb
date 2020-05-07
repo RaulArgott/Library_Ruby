@@ -1,29 +1,95 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>LibraryR</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" href="https://img.icons8.com/bubbles/2x/library.png">
+    <link href="https://img.icons8.com/bubbles/2x/library.png" rel="icon">
+    <title>Biblioteca UPSLP</title>
     <%= csrf_meta_tags %>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= render 'home/flash' %>
+    <% unless user_signed_in? %>
+        <%= render 'home/navbar' %>
+    <%end%>
+    <% if current_page? (root_path) %>
+      <%unless user_signed_in?%>
+        <%= render 'home/preloader'%>
+      <%else%>
+        
+      <%end%>
+    <%end%>
   </head>
 
   <body>
-  
-    <% if current_user %>
-    <%= render 'layouts/navbar'%>  
-    <div class="container-fluid">
-      <div class="row">
-      <%= render  "layouts/sidebar" %>
-       <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
-       
-    <%= render 'layouts/alerts' %>
-        <%= yield %>
-        </main>
-      </div>
-    </div>
-    <% else %>
-      <%= yield %>
+    <% if user_signed_in? %>
+ 
+          <div class="container-fluid">
+            <div class="row">
+                <%= render  "home/sidebar" %>
+             <div role="main" class="col-md-12 ml-sm-auto col-lg-8 products-catagories-area clearfix">
+              <section class="blog padding2" id="blog" data-scroll-index="4">
+                
+                  <div class="row">
+
+                    <!-- START BLOG SECTION TITLE -->
+                    <div class="text-center">
+                      <h2 class="heading-primary mb-5">Menú en línea</h2>
+                      <p class="mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur,
+                      dolores! Iure perspiciatis, minus modi ratione est maiores. Perferendis, porro aperiam.</p>
+                    </div>
+                    <div class="blog-list col-lg-12 col-md-6 col-sm-12 mx-auto">
+                      <%= yield %>
+                    </div>
+                  </div>
+
+              </section>
+          
+             
+              </div>
+            </div>
+          </div>
+      <%else%>
+        <%=yield%>
     <%end%>
-    <%= render  'layouts/footer' %>
+
+    <footer>
+      <%=render 'home/footer'%>
+    </footer>
+
+
+  <%= javascript_include_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag "jquery-3.3.1.min.js" %>
+  <!-- popper js -->
+  <%= javascript_include_tag "popper.min.js" %>
+  <!-- bootstrap js -->
+  <%= javascript_include_tag "bootstrap.min.js" %>
+  <!-- scrollIt js -->
+  <%= javascript_include_tag "scrollIt.min.js" %>
+  <!-- countTo js -->
+  <%= javascript_include_tag "jquery.countTo.js" %>
+  <!-- filter js -->
+  <%= javascript_include_tag "jquery.filterizr.min.js" %>
+  <!-- waypoints js -->
+  <%= javascript_include_tag "waypoints.min.js" %>
+  <!-- owl carousel js -->
+  <%= javascript_include_tag "owl.carousel.min.js" %>
+  <!-- validator js -->
+  <%= javascript_include_tag "validator.js" %>
+  <!-- maps js -->
+  <%= javascript_include_tag "gmaps.min.js" %>
+  <script src="https://maps.googleapis.com/maps/api/js?v=3&sensor=false"></script>
+  <%= javascript_include_tag "map.js" %>
+  <!-- coustom js -->
+  <%= javascript_include_tag "main.js" %>
+  <!-- lightbox js -->
+  <%= javascript_include_tag "lightbox.js" %>
+
+   <%= javascript_include_tag "active.js" %>
+    <%= javascript_include_tag "classy-nav.min.js" %>
+     <%= javascript_include_tag "plugins.js" %>
+      <%= javascript_include_tag "map-active.js" %>
+
   </body>
 </html>

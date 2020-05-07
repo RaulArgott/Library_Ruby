@@ -1,0 +1,735 @@
+<% unless user_signed_in? %>
+	<header class="home" id="home" data-scroll-index="0">
+		<div class="container">
+			<div class="row">
+
+				<div class="col-lg-7 home-content mt-md-5 mt-sm-5">
+					<h3 class="heading-tertiary mt-3 mb-3">
+						Página Virtual
+					</h3>
+					<h1 class="heading-primary mb-3">
+						Biblioteca UPSLP
+					</h1>
+
+					<p class="mb-5">
+						Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque vel aut animi quam ducimus
+					consequatur voluptas delectus, sapiente.</p>
+					<%= link_to "Iniciar Sesión", new_user_session_path, class: "button btn-hover btn-fill header-btn mt-5 mr-4"  %>
+					<%= link_to "Registrarse", new_user_registration_path, class: "button btn-hover btn-fill header-btn mt-5 mr-4" %>
+					</a>
+
+				</div>
+
+			</div>
+		</div>
+
+	</header>
+	<!-- ====== END HEADER ======  -->
+<%else%>
+	<!-- Scroll to Top -->
+	<div id="scroll-to-top"><i class="fa fa-arrow-up fa-fw"></i></div>
+<%end%>
+<div id="scroll-to-top"><i class="fa fa-arrow-up fa-fw"></i></div>
+<% unless user_signed_in? %>
+	<!-- ====== START ABOUT ======  -->
+	<section class="about padding" id="about" data-scroll-index="1">
+		<div class="container">
+			<div class="row">
+
+				<!-- START ABOUT PICTURE -->
+				<div class="col-lg-6 mt-lg-5">
+					<%= image_tag("biblioteca.jpg") %>
+				</div>
+				<!-- END ABOUT PICTURE -->
+
+				<!-- START ABOUT CONTENT -->
+				<div class="col-lg-6 mt-md-5 mt-sm-5 about-content">
+					<h2 class="heading-primary mb-5">
+						Acerca
+					</h2>
+					<h3 class="heading-tertiary mt-3 mb-4">
+						Biblioteca Virtual UPSLP
+					</h3>
+					<p class="mb-3">
+						Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque vel aut animi quam ducimus
+						consequatur voluptas delectus, sapiente, explicabo nam quasi! Corporis ipsum quae repellendus
+					molestias a quaerat recusandae similique!</p>
+					<p class="mb-5">
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius exercitationem suscipit ex quasi
+						in iure dolorem cupiditate corrupti ducimus ipsa.
+					</p>
+					<a href="#0" class="button btn-hover btn-fill mt-5">Read More &rarr;</a>
+				</div>
+				<!-- END ABOUT CONTENT -->
+
+			</div>
+		</div>
+	</section>
+	<!-- ====== END ABOUT======  -->
+
+	<!-- ====== START SERVICES ======  -->
+	<section class="services padding" id="services" data-scroll-index="2">
+		<div class="container">
+
+			<!-- START SERVICES SECTION TITLE -->
+			<div class="services_title text-center">
+				<h2 class="heading-primary text-center mb-5">Servicios en línea</h2>
+				<p class="mb-5">Lorem Ipsum is simply dummy text of the printing and type setting
+					industry when an unknown printer took a galley of type and scrambled it to make a type specimen
+				book It has survived not only five centuries.</p>
+			</div>
+			<!-- END SERVICES SECTION TITLE -->
+
+			<div class="service-carousel owl-carousel">
+				<!-- START SINGLE SERVICES -->
+				<div class="single-service">
+
+					<div class="img">
+						<div id="service-list">
+							<span class="fa-stack fa-5x has-badge" data-count="01">
+								<i class="fa fa-square fa-stack-2x"></i>
+								<i class="fa fa-globe fa-stack-1x fa-inverse"></i>
+							</span>
+						</div>
+					</div>
+
+					<div class="service-hover">
+						<h5>Inventario en Línea</h5>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In efficitur diam tellus.
+						Phasellus odio sem scelerisque</p>
+					</div>
+				</div>
+				<!-- END SINGLE SERVICES -->
+
+				<!-- START SINGLE SERVICES -->
+				<div class="single-service">
+					<div class="img">
+						<div id="service-list">
+							<span class="fa-stack fa-5x has-badge" data-count="02">
+								<i class="fa fa-square fa-stack-2x"></i>
+								<i class="fa fa-user fa-stack-1x fa-inverse"></i>
+							</span>
+						</div>
+					</div>
+
+					<div class="service-hover">
+						<h5>Usuarios</h5>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In efficitur diam tellus.
+						Phasellus odio sem scelerisque</p>
+					</div>
+				</div>
+				<!-- END SINGLE SERVICES -->
+
+				<!-- START SINGLE SERVICES -->
+				<div class="single-service">
+					<div class="img">
+						<div id="service-list">
+							<span class="fa-stack fa-5x has-badge" data-count="03">
+								<i class="fa fa-square fa-stack-2x"></i>
+								<i class="fa fa-bookmark fa-stack-1x fa-inverse"></i>
+							</span>
+						</div>
+					</div>
+
+					<div class="service-hover">
+						<h5>Prestamos</h5>
+
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In efficitur diam tellus.
+						Phasellus odio sem scelerisque</p>
+
+					</div>
+				</div>
+				<!-- END SINGLE SERVICES -->
+
+				<!-- START SINGLE SERVICES -->
+				<div class="single-service">
+					<div class="img">
+						<div id="service-list">
+							<span class="fa-stack fa-5x has-badge" data-count="04">
+								<i class="fa fa-square fa-stack-2x"></i>
+								<i class="fa fa-heart fa-stack-1x fa-inverse"></i>
+							</span>
+						</div>
+
+					</div>
+
+					<div class="service-hover">
+						<h5>Favoritos</h5>
+
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In efficitur diam tellus.
+						Phasellus odio sem scelerisque</p>
+
+					</div>
+				</div>
+				<!-- END SINGLE SERVICES -->
+
+				<!-- START SINGLE SERVICES -->
+				<div class="single-service">
+					<div class="img">
+						<div id="service-list">
+							<span class="fa-stack fa-5x has-badge" data-count="05">
+								<i class="fa fa-square fa-stack-2x"></i>
+								<i class="fa fa-hashtag fa-stack-1x fa-inverse"></i>
+							</span>
+						</div>
+
+					</div>
+
+					<div class="service-hover">
+						<h5>Etiquetas</h5>
+
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In efficitur diam tellus.
+						Phasellus odio sem scelerisque</p>
+
+					</div>
+				</div>
+				<!-- START SINGLE SERVICES -->
+
+				<!-- START SINGLE SERVICES -->
+				<div class="single-service">
+					<div class="img">
+						<div id="service-list">
+							<span class="fa-stack fa-5x has-badge" data-count="06">
+								<i class="fa fa-square fa-stack-2x"></i>
+								<i class="fa fa-exclamation fa-stack-1x fa-inverse"></i>
+							</span>
+						</div>
+
+					</div>
+
+					<div class="service-hover">
+						<h5>Multas</h5>
+
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In efficitur diam
+							tellus.
+						Phasellus odio sem scelerisque</p>
+
+					</div>
+				</div>
+				<!-- END SINGLLE SERVICES -->
+
+			</div>
+		</div>
+	</section>
+	<!-- ====== END SERVICES ======  -->
+	<!-- ====== START PORTFOLIO ======  -->
+	<section class="portfolio padding" id="portfolio" data-scroll-index="3">
+		<div class="container-fluid">
+
+			<!-- START PORTFOLIO SECTION TITLE -->
+			<div class="port-title text-center">
+				<h2 class="heading-primary mb-5">Géneros Literarios</h2>
+				<p class="mb-5">Encuentra una larga selección de géneros literarios en línea y elige el que deseas buscar.</p>
+			</div>
+			<!-- END PORTFOLIO SECTION TITLE -->
+
+
+			<!--START PORTFOLIO FILTER BUTTONS -->
+			<nav>
+				<ul class="simplefilter filter-port">
+					<li class="button" data-filter="1">Lírica</li>
+					<li class="button" data-filter="2">Narrativa</li>
+					<li class="active button" data-filter="all"> <i class="fa fa-th-large"></i></li>
+					<li class="button" data-filter="3">Teatral</li>
+					<li class="button" data-filter="4">Ensayo</li>
+				</ul>
+			</nav>
+			<!-- END PORTFOLIO FILTER BUTTONS -->
+
+			<div class="row">
+				<!--START PORTFOLIO CONTENT -->
+				<div class="filtr-container">
+
+					<!-- PORTFOLIO FILTER ITEM-->
+					<div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 filtr-item" data-category="1">
+						<div class="port-caption">
+							<!-- PORTFOLIO IMAGE -->
+							<%= image_tag("portfolio/Lirica1.png", :alt => "") %>
+
+							<!-- PORTFOLIO TITLE -->
+							<div class="overlay">
+								<div class="view-more">
+									<a href="<%= image_path("portfolio/Lirica1.png") %>" data-lightbox="mygallery"
+										data-title="This is a caption for this photo">
+										<i class="fa fa-plus fa-lg fa-fw"></i>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- PORTFOLIO FILTER ITEM-->
+					<div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 filtr-item" data-category="4">
+						<div class="port-caption">
+							<!-- PORTFOLIO IMAGE -->
+							<%= image_tag("portfolio/Ensayo1.png", :alt => "") %>
+							<!-- PORTFOLIO TITLE -->
+							<div class="overlay">
+								<div class="view-more">
+									<a href="<%= image_path("portfolio/Ensayo1.png") %>" data-lightbox="mygallery"
+										data-title="This is a caption for this photo">
+										<i class="fa fa-plus fa-lg fa-fw"></i>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- PORTFOLIO FILTER ITEM-->
+					<div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 filtr-item" data-category="2">
+						<div class="port-caption">
+							<!-- PORTFOLIO IMAGE -->
+							<%= image_tag("portfolio/Narrativa1.png", :alt => "") %>
+
+							<!-- PORTFOLIO TITLE -->
+							<div class="overlay">
+								<div class="view-more">
+									<a href="<%= image_path("portfolio/Narrativa1.png") %>" data-lightbox="mygallery"
+										data-title="This is a caption for this photo">
+										<i class="fa fa-plus fa-lg fa-fw"></i>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- PORTFOLIO FILTER ITEM-->
+					<div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 filtr-item" data-category="4">
+						<div class="port-caption">
+							<!-- PORTFOLIO IMAGE -->
+							<%= image_tag("portfolio/Ensayo2.png", :alt => "") %>
+							<!-- PORTFOLIO TITLE -->
+							<div class="overlay">
+								<div class="view-more">
+									<a href="<%= image_path("portfolio/Ensayo2.png") %>" data-lightbox="mygallery"
+										data-title="This is a caption for this photo">
+										<i class="fa fa-plus fa-lg fa-fw"></i>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- PORTFOLIO FILTER ITEM-->
+					<div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 filtr-item" data-category="2">
+						<div class="port-caption">
+							<!-- PORTFOLIO IMAGE -->
+							<%= image_tag("portfolio/Narrativa2.png", :alt => "") %>
+							<!-- PORTFOLIO TITLE -->
+							<div class="overlay">
+								<div class="view-more">
+									<a href="<%= image_path("portfolio/Narrativa2.png") %>" data-lightbox="mygallery"
+										data-title="This is a caption for this photo">
+										<i class="fa fa-plus fa-lg fa-fw"></i>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- PORTFOLIO FILTER ITEM-->
+					<div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 filtr-item" data-category=3>
+						<div class="port-caption text-center">
+							<!-- PORTFOLIO IMAGE -->
+							<%= image_tag("portfolio/Teatro1.png", :alt => "") %>
+							<!-- PORTFOLIO TITLE -->
+							<div class="overlay">
+								<div class="view-more">
+									<a href="<%= image_path("portfolio/Teatro1.png") %>" data-lightbox="mygallery"
+										data-title="This is a caption for this photo">
+										<i class="fa fa-plus fa-lg fa-fw"></i>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- PORTFOLIO FILTER ITEM-->
+					<div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 filtr-item" data-category="2">
+						<div class="port-caption">
+							<!-- PORTFOLIO IMAGE -->
+							<%= image_tag("portfolio/Narrativa3.png", :alt => "") %>
+							<!-- PORTFOLIO TITLE -->
+							<div class="overlay">
+								<div class="view-more">
+									<a href="<%= image_path("portfolio/Narrativa3.png") %>" data-lightbox="mygallery"
+										data-title="This is a caption for this photo">
+										<i class="fa fa-plus fa-lg fa-fw"></i>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- PORTFOLIO FILTER ITEM-->
+					<div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 filtr-item" data-category="3">
+						<div class="port-caption">
+							<!-- PORTFOLIO IMAGE -->
+							<%= image_tag("portfolio/Teatro2.png", :alt => "") %>
+							<!-- PORTFOLIO TITLE -->
+							<div class="overlay">
+								<div class="view-more">
+									<a href="<%= image_path("portfolio/Teatro2.png") %>" data-lightbox="mygallery"
+										data-title="This is a caption for this photo">
+										<i class="fa fa-plus fa-lg fa-fw"></i>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- PORTFOLIO FILTER ITEM-->
+					<div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 filtr-item" data-category="1">
+						<div class="port-caption">
+							<!-- PORTFOLIO IMAGE -->
+							<%= image_tag("portfolio/Lirica2.png", :alt => "") %>
+							<!-- PORTFOLIO TITLE -->
+							<div class="overlay">
+								<div class="view-more">
+									<a href="<%= image_path("portfolio/Lirica2.png") %>" data-lightbox="mygallery"
+										data-title="This is a caption for this photo">
+										<i class="fa fa-plus fa-lg fa-fw"></i>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- PORTFOLIO FILTER ITEM-->
+					<div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 filtr-item" data-category="3">
+						<div class="port-caption">
+							<!-- PORTFOLIO IMAGE -->
+							<%= image_tag("portfolio/Teatro3.png", :alt => "") %>
+							<!-- PORTFOLIO TITLE -->
+							<div class="overlay">
+								<div class="view-more">
+									<a href="<%= image_path("portfolio/Teatro3.png") %>" data-lightbox="mygallery"
+										data-title="This is a caption for this photo">
+										<i class="fa fa-plus fa-lg fa-fw"></i>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- PORTFOLIO FILTER ITEM-->
+					<div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 filtr-item" data-category="1">
+						<div class="port-caption">
+							<!-- PORTFOLIO IMAGE -->
+							<%= image_tag("portfolio/Lirica3.png", :alt => "") %>
+							<!-- PORTFOLIO TITLE -->
+							<div class="overlay">
+								<div class="view-more">
+									<a href="<%= image_path("portfolio/Lirica3.png") %>" data-lightbox="mygallery"
+										data-title="This is a caption for this photo">
+										<i class="fa fa-plus fa-lg fa-fw"></i>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- PORTFOLIO FILTER ITEM-->
+					<div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 filtr-item" data-category=4>
+						<div class="port-caption text-center">
+							<!-- PORTFOLIO IMAGE -->
+							<%= image_tag("portfolio/Ensayo3.png", :alt => "") %>
+							<!-- PORTFOLIO TITLE -->
+							<div class="overlay">
+								<div class="view-more">
+									<a href="<%= image_path("portfolio/Ensayo3.png") %>" data-lightbox="mygallery"
+										data-title="This is a caption for this photo">
+										<i class="fa fa-plus fa-lg fa-fw"></i>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+				<!--END PORTFOLIO CONTENT -->
+			</div>
+		</div>
+	</section>
+	<!-- ====== END PORTFOLIO ======  -->
+
+
+	<!-- ====== START COUNTS ======  -->
+	<section class="counts">
+		<div class="container">
+
+			<div class="row">
+				<!-- START COUNTS ITEM -->
+				<div class="col-lg-3 col-md-6 col-sm-6 mx-auto">
+					<div class="counter text-center">
+						<div class="counting-icon">
+							<i class="fa fa-book fa-2x"></i>
+						</div>
+						<!-- NUMBER -->
+						<span class="count" data-from="0" data-to="2200">500</span>
+						<!-- TITLE -->
+						<h4>Libros</h4>
+					</div>
+				</div>
+				<!-- END COUNTS ITEM -->
+
+				<!-- START COUNTS ITEM -->
+				<div class="col-lg-3 col-md-6 col-sm-6 mx-auto">
+					<div class="counter text-center">
+						<div class="counting-icon">
+							<i class="fa fa-archive fa-2x"></i>
+						</div>
+						<!-- NUMBER -->
+						<span class="count" data-from="0" data-to="1800">280</span>
+						<!-- TITLE -->
+						<h4>Generos Literarios</h4>
+					</div>
+				</div>
+				<!-- END COUNTS ITEM -->
+
+				<!-- START COUNTS ITEM -->
+				<div class="col-lg-3 col-md-6 col-sm-6 mx-auto">
+					<div class="counter text-center">
+						<div class="counting-icon">
+							<i class="fa fa-users fa-2x"></i>
+						</div>
+						<!-- NUMBER -->
+						<span class="count" data-from="0" data-to="780">100</span>
+						<!-- TITLE -->
+						<h4>Usuarios</h4>
+					</div>
+				</div>
+				<!-- END COUNTS ITEM -->
+
+				<!-- START COUNTS ITEM -->
+				<div class="col-lg-3 col-md-6 col-sm-6 mx-auto">
+					<div class="counter text-center">
+						<div class="counting-icon">
+							<i class="fa fa-heart fa-2x"></i>
+						</div>
+						<!-- NUMBER -->
+						<span class="count" data-from="0" data-to="420">75</span>
+						<!-- TITLE -->
+						<h4>Favoritos</h4>
+					</div>
+				</div>
+				<!-- END COUNTS ITEM -->
+
+			</div>
+		</div>
+	</section>
+	<!-- ====== END COUNTS ======  -->
+	<% else %>
+		<%if current_user.admin? %>
+			
+
+
+
+
+		<% else %>
+		<!-- ====== START BLOG ======  -->
+		<section class="blog padding2" id="blog" data-scroll-index="4">
+			
+				<div class="row">
+
+					<!-- START BLOG SECTION TITLE -->
+					<div class="text-center">
+						<h2 class="heading-primary mb-5">Menú en línea</h2>
+						<p class="mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur,
+						dolores! Iure perspiciatis, minus modi ratione est maiores. Perferendis, porro aperiam.</p>
+					</div>
+					<!-- END BLOG SECTION TITLE -->
+
+					<!-- BLOG ITEM -->
+					<div class="blog-list col-lg-4 col-md-6 col-sm-12 mx-auto">
+
+						<div class="blog-img">
+							
+							<img src="https://images.unsplash.com/photo-1550399105-c4db5fb85c18?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1051&q=80" alt="blog-image" />
+						</div>
+						<div class="blog-item">
+							<div class="post-title mt-3">
+								<a href="#0">
+									<h3>Buscar un libro</h3>
+								</a>
+							</div>
+							<div class="post-content mb-5">
+								<p class="mb-5">
+									Lorem ipsum dolor sit amet consectetur adipisicing elit.
+								</p>
+								<a href="#0" class="button">Read More<i class="fa fa-long-arrow-right"></i></a>
+							</div>
+							<div class="post-meta mt-5">
+								<ul>
+									<li>
+										<i class="fa fa-tags"></i>
+										<span>Web Design</span>
+									</li>
+									<li>
+										<i class="fa fa-book"></i>
+										<span>7 mins read</span>
+									</li>
+									<li>
+										<i class="fa fa-comment"></i>
+										<a href="#0">4</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+
+						<!-- BLOG ITEM -->
+						
+					</div>
+					<!-- END BLOG ITEM -->
+					<div class="blog-list col-lg-4 col-md-6 col-sm-12 mx-auto">
+
+						<div class="blog-img">
+							
+							<img src="https://images.unsplash.com/photo-1579533181629-c3ad601287ee?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" alt="blog-image" />
+						</div>
+						<div class="blog-item">
+
+							<div class="post-title mt-3">
+								<a href="#0">
+									<h3>Favoritos</h3>
+								</a>
+							</div>
+							<div class="post-content mb-5">
+								<p class="mb-5">
+									Lorem ipsum dolor sit amet consectetur adipisicing elit.
+								</p>
+								<a href="#0" class="button">Read More<i class="fa fa-long-arrow-right"></i></a>
+							</div>
+
+							<div class="post-meta mt-5">
+								<ul>
+									<li>
+										<i class="fa fa-tags"></i>
+										<span>User Experience</span>
+									</li>
+									<li>
+										<i class="fa fa-book"></i>
+										<span>3 mins read</span>
+									</li>
+									<li>
+										<i class="fa fa-comment"></i>
+										<a href="#0">8</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+
+						<!-- BLOG ITEM -->
+					</div>
+					<!-- BLOG ITEM -->
+					<div class="blog-list col-lg-4 col-md-6 col-sm-12 mx-auto">
+
+						<div class="blog-img">
+							
+							<img src="https://www.rcplondon.ac.uk/sites/default/files/media/Images/book%20stamp_0_0_0_0.jpg" alt="blog-image" />
+						</div>
+						<div class="blog-item">
+
+							<div class="post-title mt-3">
+								<a href="#0">
+									<h3>Multas y Recargos</h3>
+								</a>
+							</div>
+							<div class="post-content mb-5">
+								<p class="mb-5">
+									Lorem ipsum dolor sit amet consectetur adipisicing elit.
+								</p>
+								<a href="#0" class="button">Read More<i class="fa fa-long-arrow-right"></i></a>
+							</div>
+
+							<div class="post-meta mt-5">
+								<ul>
+									<li>
+										<i class="fa fa-tags"></i>
+										<span>User Experience</span>
+									</li>
+									<li>
+										<i class="fa fa-book"></i>
+										<span>3 mins read</span>
+									</li>
+									<li>
+										<i class="fa fa-comment"></i>
+										<a href="#0">8</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+
+						
+
+						<!-- BLOG ITEM -->
+					</div>
+					
+					<!-- END BLOG ITEM -->
+				</div>
+			
+		</section>
+		<!-- ====== END BLOG ======  -->
+		<%end%>
+	<%end%>
+	<% unless user_signed_in? %>
+	<!-- ====== START CONTACT DETAILS ======  -->
+	<section class="contact-details">
+		<div class="container">
+
+			<!-- START INFO-->
+			<div class="row">
+				<div class="col-lg-6 col-md-6 col-sm-8 mx-auto">
+					<div class="contact-info">
+						<i class="fa fa-map fa-fw"></i>
+						<div class="contact-info_text">
+							<h5>Dirección:</h5>
+							<p>Urbano Villalón num.500, Col. La Ladrillera,<br> San Luis Potosí, S.L.P. México</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-lg-6 col-md-6 col-sm-8 mx-auto">
+					<div class="contact-info">
+						<i class="fa fa-phone fa-fw"></i>
+						<div class="contact-info_text">
+							<h5>Teléfono:</h5>
+							<p>444 812-65-19, <br>444 812-63-67</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-lg-6 col-md-6 col-sm-8 mx-auto">
+					<div class="contact-info">
+						<i class="fa fa-envelope fa-fw"></i>
+						<div class="contact-info_text">
+							<h5>Email:</h5>
+							<p>biblioteca-virtual@upslp.edu.mx <br>cid@upslp.edu.mx</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-lg-6 col-md-6 col-sm-8 mx-auto">
+					<div class="contact-info">
+						<i class="fa fa-refresh fa-fw"></i>
+						<div class="contact-info_text">
+							<h5>Horario de Atención:</h5>
+							<p>Lun - Vie 9.00 - 18.00<br>Sab - 10:00 - 12:00</p>
+						</div>
+					</div>
+				</div>
+
+			</div>
+			<!-- END INFO -->
+
+		</div>
+	</section>
+	<!-- ====== END CONTACT DETAILS ======  -->
+
+	<!-- ====== START MAP ======  -->
+	<!--Google map-->
+	<div id="map"></div>
+	<!-- ====== END MAP ======  -->
+	<%end%>
+
+
+

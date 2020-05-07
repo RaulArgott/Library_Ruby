@@ -1,0 +1,110 @@
+<% if current_page? (root_path) and not user_signed_in?%>
+    <div class="top-bar">
+        <div class="container">
+            <ul class="nav nav-pills nav-fill">
+                <li class="nav-item">
+                    <i class="fa fa-envelope"></i> <span>biblioteca-virtual@upslp.edu.mx</span>
+                </li>
+                <li class="nav-item">
+                    <i class="fa fa-phone"></i> <span>444 812-65-19 o 444 812-63-67</span>
+                </li>
+                <li class="nav-item">
+                    <i class="fa fa-clock-o"></i> <span>Horario de Atención: Lun - Vie 9.00 - 18.00</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+<% end %>
+<!--Top Bar  -->
+<!-- Menu -->
+<div class="main-menu">
+    <div class="container">
+        <nav class="navbar navbar-expand-lg">
+            <!-- logo -->
+            <a class="navbar-brand">
+                <img src="https://img.icons8.com/bubbles/2x/library.png" class="logo">
+                
+            </a>
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText">
+                    <span class="icon-bar"><i class="fa fa-bars fa-2x"></i></span>
+                </button>
+                <!--End of Resposive Toggle icon-->
+
+                <div class="collapse navbar-collapse" id="navbarText">
+                    <!--Main menu navigation list-->
+                    <ul class="navbar-nav ml-auto">
+                        <% unless current_page? (new_user_session_path) or current_page? (new_user_registration_path) or current_page? (new_user_password_path) %>
+                            <% if user_signed_in? %>
+                                <% if current_user.admin? %>
+                                    <li class="nav-item">
+                                        <%= link_to "LIBROS", books_path, class: "nav-link" %>
+                                    </li>
+                                    <li class="nav-item">
+                                        <%= link_to "PRESTAMOS", root_path, class: "nav-link" %>
+                                    </li>
+                                    <li class="nav-item">
+                                        <%= link_to "LIBREROS", root_path, class: "nav-link" %>
+                                    </li>
+                                    <li class="nav-item">
+                                        <%= link_to "AUTORES", root_path, class: "nav-link" %>
+                                    </li>
+                                    <li class="nav-item">
+                                        <%= link_to "PUBLICADORES", root_path, class: "nav-link" %>
+                                    </li>
+                                    <li class="nav-item">
+                                        <%= link_to "ESTUDIANTES", root_path, class: "nav-link" %>
+                                    </li>
+                                    <li class="nav-item">
+                                        <%= link_to "FAVORITOS", root_path, class: "nav-link" %>
+                                    </li>
+                                    
+                                <% else %>
+                                    <li class="nav-item">
+                                        <%= link_to "INICIO NO ADMIN", root_path, class: "nav-link" %>
+                                    </li>
+                                <% end %>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                      <%= current_user.email[0,current_user.email.index("@")].upcase %>
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                       <%= link_to "Editar Perfil", edit_user_registration_path, class: "dropdown-item"  %>
+                                      <div class="dropdown-divider"></div>
+                                      
+                                        <%= link_to "Cerrar Sesión", destroy_user_session_path, class: "dropdown-item", method: :delete  %>
+                                    </div>
+                                </li>
+                            <% else %>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#home" data-scroll-nav="0">INICIO</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#about" data-scroll-nav="1">ACERCA</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#services" data-scroll-nav="2">SERVICIOS</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#portfolio" data-scroll-nav="3">GÉNEROS LITERARIOS</a>
+                                </li>
+                            <%end%>
+                        <%else%>
+                            <li class="nav-item">
+                                <a>Biblioteca Virtual</a>
+                            </li>
+                        <%end%>
+                        
+
+                    </ul>
+                    <!--End of Main menu navigation list-->
+                </div>
+                <!--End of resposive collapse class-->
+            </nav>
+        </div>
+        <div class="main-menu line">
+
+        </div>
+    </div>
+    <!-- Menu -->
+    <!-- ====== END NAVGITION ======  -->

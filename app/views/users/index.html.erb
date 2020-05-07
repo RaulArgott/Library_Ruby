@@ -4,6 +4,7 @@
         <tr>
             <th>User</th>
             <th>Created at</th>
+            <th>Admin</th>
             <th>Action</th>
         </tr>
         </thead>
@@ -11,10 +12,13 @@
             <% @users.each do |user| %>
             <tr>
                 <td>
-                    <%= user.id %>
+                    <%= user.email %>
                 </td>
                 <td>
                     <%= user.created_at %>
+                </td>
+                <td>
+                    <%= user.admin %>
                 </td>
                 <td>
                     <%= link_to  "Details", '#' %>
@@ -23,4 +27,4 @@
             <% end %>
         </tbody>
 </table>
-
+<%= link_to  "New", 'users_admin/new' %>

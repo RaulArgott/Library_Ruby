@@ -1,29 +1,130 @@
-<h2>Sign up</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+<!-- ====== START CONTACT ======  -->
+    <section class="contact padding" id="contact" data-scroll-index="5">
+        <div class="container">
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+            <!-- START CONTACT SECTION TITLE -->
+            <div class="text-center">
+                <h2 class="heading-primary mb-5">Regístrate</h2>
+                <p class="mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Error
+                    aperiam consectetur rem odit in natus.</p>
+            </div>
+            <!-- END CONTACT SECTION TITLE -->
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+            <div class="row">
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
+                <!-- START FAQ -->
+                <div class="col-lg-6 mt-lg-5">
+                    <div id="accordion" class="accordion">
+                        <h2 class="heading-tertiary mb-5">¿Tienes alguna pregunta acerca de</h2>
+                        <div class="card mb-0">
+                            <div class="card-header collapsed" data-toggle="collapse" href="#collapseOne">
+                                <a class="card-title heading-secondary">
+                                    Los beneficios de crear una cuenta?
+                                </a>
+                            </div>
+                            <div id="collapseOne" class="card-body collapse" data-parent="#accordion">
+                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempore iusto vitae autem
+                                    repellat dolorem dolor possimus dolores, adipisci minus at ipsa, consequuntur rerum
+                                    nulla illum assumenda fugit eius accusantium magni.
+                                </p>
+                            </div>
+                            <div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion"
+                                href="#collapseTwo">
+                                <a class="card-title heading-secondary">
+                                    Qué necesitas crear una cuenta?
+                                </a>
+                            </div>
+                            <div id="collapseTwo" class="card-body collapse" data-parent="#accordion">
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis pariatur expedita
+                                    recusandae excepturi sit ea, sint minus ut iure dolorum ducimus dolore commodi
+                                    obcaecati nobis ab! Accusantium atque sequi rem.
+                                </p>
+                            </div>
+                            <div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion"
+                                href="#collapseThree">
+                                <a class="card-title heading-secondary">
+                                    Cómo crear una cuenta?
+                                </a>
+                            </div>
+                            <div id="collapseThree" class="collapse" data-parent="#accordion">
+                                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ut laborum incidunt
+                                    officiis! Magni ipsa corporis deleniti aspernatur iusto ullam, veritatis nostrum
+                                    dolores asperiores suscipit eum aliquam! Autem fuga eligendi labore!
+                                </p>
+                            </div>
+                            <div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion"
+                                href="#collapseFour">
+                                <a class="card-title heading-secondary">
+                                    Cómo recurar tu contraseña?
+                                </a>
+                            </div>
+                            <div id="collapseFour" class="collapse" data-parent="#accordion">
+                                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ut laborum incidunt
+                                    officiis! Magni ipsa corporis deleniti aspernatur iusto ullam, veritatis nostrum
+                                    dolores asperiores suscipit eum aliquam! Autem fuga eligendi labore!
+                                </p>
+                            </div>
+                            <div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion"
+                                href="#collapseFive">
+                                <a class="card-title heading-secondary">
+                                    Cómo iniciar sesión?
+                                </a>
+                            </div>
+                            <div id="collapseFive" class="collapse" data-parent="#accordion">
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur libero quam vitae,
+                                    exercitationem nam natus necessitatibus placeat officiis sit sint, obcaecati facilis
+                                    debitis magni illum cupiditate assumenda esse tenetur facere?
+                                </p>
+                            </div>
 
-<%= render "devise/shared/links" %>
+                        </div>
+                    </div>
+                </div>
+                <!-- END FAQ -->
+
+                <!-- START CONTACT FORM -->
+                <div class="contact-form col-lg-6 text-center form">
+                     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+                     <%= render "devise/shared/error_messages", resource: resource %>
+                        <div class="messages"></div>
+                        <div class="controls">
+                            <div class="row ">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Correo Electronico:" %>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <%= f.password_field :password, autocomplete: "new-password", placeholder: "Contraseña:" %>
+                                        
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Confirma la contraseña:" %>
+                                        
+                                    </div>
+                                </div>                        
+                                            
+                                <div class="col-md-12">
+                                    <%= f.submit "Registrarse", class: "button" %>
+                                </div>   
+                                </br> </br> </br>                             
+                                <div class="col-md-12">
+                                  <center>
+                                    <%= render "devise/shared/links" %>
+                                  </center>
+                                </div>
+                            </div>
+                        </div>
+                    <%end%>
+                </div>
+                <!-- END CONTACT FORM -->
+
+            </div>
+        </div>
+    </section>
+    <!-- ====== END CONTACT ======  -->
