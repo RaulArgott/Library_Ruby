@@ -1,2 +1,3 @@
-<p><%= @book.name %> <%= @book.author.name %> </p>
-<p><%= link_to 'Edit', edit_book_path(@book) %> <%= link_to  "Delete", book_path(@book), method: :delete, data: {confirm: 'Are you sure?'} %> </p>
+<p>Book: <%= @book.name %> </p>
+<p>Author: <%= @book.author.name %> </p>
+ <i class="glyphicon glyphicon-star-empty"></i><%= link_to  "Fav", '#' %>

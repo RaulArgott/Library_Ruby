@@ -5,6 +5,8 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+
+gem 'jquery-datatables'
 gem "font-awesome-rails"
 gem 'devise'
 gem 'bootstrap', '~> 4.4.1'
