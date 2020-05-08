@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
+  get 'favourites/index'
+
+  get 'favourites/update'
+
   get 'home/index'
 
   resources :book_loans
   resources :loans
-  resources :favourites
   resources :tags
   resources :books
   resources :bookshelves

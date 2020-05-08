@@ -8,6 +8,7 @@ class BooksController < ApplicationController
     end
     def show
         @book = find_book_id
+        @fav_exists = Favourite.where(book: @book, user: current_user) == [] ? false : true
     end
     def new
         @book = Book.new
