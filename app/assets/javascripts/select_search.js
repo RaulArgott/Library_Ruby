@@ -30,7 +30,8 @@ $(document).on('turbolinks:load', function() {
             $('.author').modal();
             $('#new_author').trigger('reset');
             $('#author_name').val(input);
-        }
+        },
+        selectOnTab: true
     });
 
     $('#new_publisher').on('submit', function(e) {
@@ -56,7 +57,8 @@ $(document).on('turbolinks:load', function() {
             $('.publisher').modal();
             $('#new_publisher').trigger('reset');
             $('#publisher_name').val(input);
-        }
+        },
+        selectOnTab: true
     });
 
 

@@ -6,9 +6,16 @@ class Book < ApplicationRecord
   has_many :tag, through: :book_tag
   has_many :book_loan
   has_many :loan, through: :book_loan
-  validates :name, presence: { message: "must be given please" }
-  validates :name, length: { 
-    minimum: 5,
+  validates :name, presence: true
+  validates :author_id, presence: true
+  validates :publisher_id, presence: true
+  validates :edition, presence: true
+  validates :bookshelf_id, presence: true
+  validates :genre, presence: true
+  validates :copies, presence: true
+  validates :language, presence: true
+  validates :pages, presence: true
+  validates :name, length: {
     maximum: 30,
   }
   before_save :upcase_fields

@@ -1,20 +1,20 @@
-<% if @book.errors.any? %>
+<%= bootstrap_form_for(@book) do |f| %>
+  <% if @book.errors.any? %>
   <h2>Some things you can fix!</h2>
   <ul>
-    <% @post.errors.full_messages do |msg| %>
+    <% @book.errors.full_messages do |msg| %>
       <li><%= msg %></li>
     <% end %>
   </ul>
 <% end %>
-<%= bootstrap_form_for(@book) do |f| %>
   <%= f.text_field :name %>
-  <%= f.select :publisher, @publishers.collect {|publisher| [publisher.name+", "+publisher.city, publisher.id]},{include_blank: true , class: "selectize"} %>
-  <%= f.select :author, @authors.collect {|author| [author.name+" "+author.last_name, author.id]}, {include_blank: true , class: "selectize"}  %>
+  <%= f.select :publisher_id, @publishers.collect {|publisher| [publisher.name+", "+publisher.city, publisher.id ]},{include_blank: true , class: "selectize"} %>
+  <%= f.select :author_id, @authors.collect {|author| [author.name+" "+author.last_name, author.id]}, {include_blank: true , class: "selectize"}  %>
   <%= f.select :genre, ['Fantasy','Adventure','Romance','Contemporary','Dystopian','Mystery','Horror','Thriller','Paranormal','Historical fiction','Science Fiction','Memoir','Cooking','Art','Self-help / Personal Development','Motivational','Health','History','Travel','Guide', 'How-to','Families & Relationships','Humor','Children’s'], {include_blank: true , class: "selectize"}  %>
   <%= f.number_field :pages, value: '1', within: 1..2000  %>
-  <%= f.select :year, (Time.now.year).downto(Time.now.year - 200).to_a, {include_blank: true , class: "selectize"}  %>
+  <%= f.number_field :edition, value: '1', within: 1..200%>
   <%= f.select :language , [['English','English'],['Spanish','Spanish']], {include_blank: true , class: "selectize"}%>
-  <%= f.select :bookshelf, @bookshelves.collect {|bookshelf| [bookshelf.number, bookshelf.id]}, {include_blank: true , class: "selectize"} %>
+  <%= f.select :bookshelf_id, @bookshelves.collect {|bookshelf| [bookshelf.number, bookshelf.id]}, {include_blank: true , class: "selectize"} %>
   <%= f.number_field :copies, value: '1', within: 1..100  %>
   <%= f.submit %>
 <% end %>

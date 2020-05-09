@@ -2,9 +2,7 @@ class BooksController < ApplicationController
     
     def index
         @books = all_books
-
         flash.now[:notice] = "We have exactly #{@books.size} books available."
-
     end
     def show
         @book = find_book_id
@@ -18,17 +16,20 @@ class BooksController < ApplicationController
         @bookshelves = Bookshelf.all 
     end
     def create        
-        @book = Book.new(post_params(:name, :genre, :pages, :year, :language, :copies))        
-        @book.publisher = Publisher.find(post_params(:publisher)[:publisher])
-        @book.author = Author.find(post_params(:author)[:author])
-        @book.bookshelf = Bookshelf.find(post_params(:bookshelf)[:bookshelf])
-        @book.available = params[:copies]
-        @book.code = @book.name[0].upcase + @book.author.name[0].upcase + @book.author.last_name[0].upcase + @book.publisher.name[0].upcase + @book.publisher.city[0].upcase + generate_random_string()
+        @book = Book.new(post_params(:name, :genre, :pages, :edition, :language, :copies, :publisher_id, :author_id, :bookshelf_id))        
+        # @book.publisher = Publisher.find(post_params(:publisher)[:publisher])
+        # @book.code = @book.name[0].upcase + @book.author.name[0].upcase + @book.author.last_name[0].upcase + @book.publisher.name[0].upcase + @book.publisher.city[0].upcase + generate_random_string()
         if @book.save
-        redirect_to book_path(@book)
+            @book.available = params[:copies]
+            @book.code = @book.name[0].upcase + @book.author.name[0].upcase + @book.author.last_name[0].upcase + @book.publisher.name[0].upcase + @book.publisher.city[0].upcase + generate_random_string()
+            @book.save
+            redirect_to book_path(@book)
         else
-            flash[:alert] = "Something gone wrong!"
-            redirect_to new_book_path
+            flash[:alert] = "Something gone wrong!"            
+            @authors = Author.all
+            @publishers = Publisher.all
+            @bookshelves = Bookshelf.all 
+            render :new
         end
     end
     def edit
@@ -39,17 +40,21 @@ class BooksController < ApplicationController
     end    
     def update
         @book = find_book_id
-        @book.update(post_params(:name, :genre, :pages, :year, :language, :copies))
-        @book.publisher = Publisher.find(post_params(:publisher)[:publisher])
-        @book.author = Author.find(post_params(:author)[:author])
-        @book.bookshelf = Bookshelf.find(post_params(:bookshelf)[:bookshelf])
-        @book.code = @book.name[0].upcase + @book.author.name[0].upcase + @book.author.last_name[0].upcase + @book.publisher.name[0].upcase + @book.publisher.city[0].upcase + generate_random_string()
-        @book.save
-        redirect_to book_path(@book)
+        if @book.update(post_params(:name, :genre, :pages, :edition, :language, :copies, :publisher_id, :author_id, :bookshelf_id))
+            flash[:alert] = "Book edited!"  
+            redirect_to book_path(@book)
+        else 
+            flash[:alert] = "Something gone wrong!"  
+            @authors = Author.all
+            @publishers = Publisher.all
+            @bookshelves = Bookshelf.all 
+            render :edit
+        end
     end
     def destroy
         @book = find_book_id
         @book.destroy
+        flash[:alert] = "Book deleted"  
         redirect_to books_path
     end
 

@@ -1,11 +1,29 @@
-<p>Book: <%= @book.name %> </p>
-<p>Author: <%= @book.author.name %> </p>
+<div class="card">
+  <h5 class="card-header">Data</h5>
+   <div class="card-body">
+<p>Book: <strong><%= @book.name %></strong> </p>
+<p>Author: <strong><%= @book.author.last_name %>, <%= @book.author.name %></strong></p>
+<p>Publisher: <strong><%= @book.publisher.name%>, <%= @book.publisher.city%></strong></p>
+<p>Edition: <strong><%= @book.edition %></strong></p>
+</div>
+</div>
 <%= link_to  fav_text, favourites_update_path(book: @book), id: 'favs_link', remote: true,  data: { turbolinks: false } %>
 <div class="tags"><%= @book.tag.map { |t| t.name }.join(", ") %>
 </div>
-<%= form_for Tag.new do |f| %>
-    <%= f.label 'New tag' %>
-    <%= f.text_field :name %>
-    <%= hidden_field_tag 'book', @book.id %>
-    <%= f.submit 'Add' %>
+<%= form_for Tag.new, inline: true do |f| %>
+    <div class="form-row">
+         <div class="col">
+        <%= f.text_field :name, class: 'form-control'%>
+        <%= hidden_field_tag 'book', @book.id %>
+        </div>
+         <div class="col">
+        <%= f.submit 'Add', class: 'btn btn-primary' %>
+        </div>
+    </div>
+<% end %>
+<% if current_user.admin %>
+    <div class="btn-group" role="group">
+    <%= link_to 'Edit', edit_book_path(@book), class: 'btn btn-outline-info' %>
+    <%= link_to 'Delete', book_path(@book), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-outline-danger' %>
+    </div>
 <% end %>
