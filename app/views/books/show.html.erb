@@ -1,3 +1,11 @@
 <p>Book: <%= @book.name %> </p>
 <p>Author: <%= @book.author.name %> </p>
 <%= link_to  fav_text, favourites_update_path(book: @book), id: 'favs_link', remote: true,  data: { turbolinks: false } %>
+<div class="tags"><%= @book.tag.map { |t| t.name }.join(", ") %>
+</div>
+<%= form_for Tag.new do |f| %>
+    <%= f.label 'New tag' %>
+    <%= f.text_field :name %>
+    <%= hidden_field_tag 'book', @book.id %>
+    <%= f.submit 'Add' %>
+<% end %>

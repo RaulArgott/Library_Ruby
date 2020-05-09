@@ -1,4 +1,9 @@
-
+<div>
+  <h1>Tags</h1>
+  <% Tag.all.each do |tag| %>
+  <%= link_to tag.name, tag_path(tag) %>
+  <% end %>
+</div>
 <table id="dttb" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
   <thead>
     <tr>
