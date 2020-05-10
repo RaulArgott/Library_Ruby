@@ -1,4 +1,12 @@
-<%= bootstrap_form_for User.new, url: create_user_path do |f| %>
+<%= bootstrap_form_for @user, url: create_user_path do |f| %>
+<% if @user.errors.any? %>
+    <h2>Some things you can fix!</h2>
+    <ul>
+        <% @user.errors.full_messages do |msg| %>
+        <li><%= msg %></li>
+        <% end %>
+    </ul>
+<% end %>
 <%= f.text_field :email %>
 <%= f.submit "Create" %>
 <% end %>

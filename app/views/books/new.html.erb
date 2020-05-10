@@ -1,12 +1,12 @@
 <%= bootstrap_form_for(@book) do |f| %>
   <% if @book.errors.any? %>
-  <h2>Some things you can fix!</h2>
-  <ul>
-    <% @book.errors.full_messages do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-  </ul>
-<% end %>
+    <h2>Some things you can fix!</h2>
+    <ul>
+      <% @book.errors.full_messages do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  <% end %>
   <%= f.text_field :name %>
   <%= f.select :publisher_id, @publishers.collect {|publisher| [publisher.name+", "+publisher.city, publisher.id ]},{include_blank: true , class: "selectize"} %>
   <%= f.select :author_id, @authors.collect {|author| [author.name+" "+author.last_name, author.id]}, {include_blank: true , class: "selectize"}  %>

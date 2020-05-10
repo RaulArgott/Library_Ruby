@@ -1,5 +1,8 @@
 class UsersController < ApplicationController
-    before_action :authorize_admin, only: :create
+    before_action :authorize_admin
+    def new
+        @user = User.new
+    end
     def index
         @users = User.where(admin: false)
         respond_to do |format|
@@ -13,7 +16,7 @@ class UsersController < ApplicationController
             UsersMailer.with(user: @user).mail_user.deliver_now	
             redirect_to users_admin_index_path, notice: "User succesfully created!" 
         else
-            render 'users/new'
+            render :new
         end
     end
     def destroy
@@ -28,8 +31,8 @@ class UsersController < ApplicationController
     # This should probably be abstracted to ApplicationController
     # as shown by diego.greyrobot
     def authorize_admin
-    #   return unless !current_user.admin?
-    #   redirect_to root_path, alert: 'Admins only!'
+       return unless !current_user.admin?
+       redirect_to root_path, alert: 'Admins only!'
     end
     def user_params
         params.require(:user).permit(:email)

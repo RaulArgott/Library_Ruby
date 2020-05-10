@@ -3,6 +3,11 @@ class Loan < ApplicationRecord
   has_many :book_loan
   has_many :book, through: :book_loan
 
+  validates :due_date, presence: true
+  validates :loan_state, presence: true
+  validates :book_ids, presence: true
+  validates :user_id, presence: true
+
   def self.check_loans
     loans = self.all
     today = Date.today    

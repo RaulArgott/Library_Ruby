@@ -16,12 +16,11 @@ class BooksController < ApplicationController
     end
     def create        
         @book = Book.new(post_params(:name, :genre, :pages, :edition, :language, :copies, :publisher_id, :author_id, :bookshelf_id))        
-        # @book.publisher = Publisher.find(post_params(:publisher)[:publisher])
-        # @book.code = @book.name[0].upcase + @book.author.name[0].upcase + @book.author.last_name[0].upcase + @book.publisher.name[0].upcase + @book.publisher.city[0].upcase + generate_random_string()
         if @book.save
-            @book.available = params[:copies]
-            @book.code = @book.name[0].upcase + @book.author.name[0].upcase + @book.author.last_name[0].upcase + @book.publisher.name[0].upcase + @book.publisher.city[0].upcase + generate_random_string()
+            @book.available = @book.copies
+            @book.code = @book.name[0].upcase + @book.author.name[0].upcase + @book.author.last_name[0].upcase + @book.publisher.name[0].upcase + @book.publisher.city[0].upcase + generate_random_string()+@book.edition.to_s
             @book.save
+            flash[:alert] = "Book created!"
             redirect_to book_path(@book)
         else
             flash[:alert] = "Something gone wrong!"            

@@ -1,7 +1,8 @@
 class LoansController < ApplicationController
     helper_method :state
     def index
-        @loans = all_loans
+        @loaned = Loan.where.not(loan_state: 'Returned')
+        @returned = Loan.where(loan_state: 'Returned')
     end
     def show
         @loan = find_loan_id
@@ -12,11 +13,17 @@ class LoansController < ApplicationController
         @users = User.where(admin: false)
     end
     def create
+        @loan = Loan.new(post_params(:due_date, :loan_state,  :user_id, book_ids: []))
+        if @loan.save
+            flash[:alert] = "Book(s) loaned!"
+            redirect_to loan_path(@loan)
+        else 
+            @books = Book.all
+            @users = User.where("available > ?", 0)
+            flash[:alert] = "Something gone wrong!"
+            render :new
+        end
         
-        @loan = Loan.new(post_params(:due_date, :loan_state, book_ids: []))
-        @loan.user = User.find(post_params(:user)[:user])    
-        @loan.save
-        redirect_to loan_path(@loan)
     end
     def edit
         @loan = find_loan_id

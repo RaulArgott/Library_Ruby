@@ -1,41 +1,85 @@
-
-<table id="example" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
-  <thead>
-    <tr>
-      <th class="th-sm">Loan Date
-      </th>
-      <th class="th-sm">Due Date
-      </th>
-      <th class="th-sm">Book
-      </th>
-      <th class="th-sm">Borrower
-      </th>
-      <th class="th-sm">Loan State
-      </th>
-      <th class="th-sm">Action
-      </th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @loans.each do |loan| %>
-    <tr class="<%= state(loan) %>" >
-      <td><%= loan.created_at.to_date %>
-      </td>
-      <td><%= loan.due_date %>
-      </td>
-      <td><% loan.book.each do |book| %>
-      <p><%= book.name %> </p>
+<div class="newloan">
+<%= link_to 'New Loan', new_loan_path, class: 'btn btn-outline-primary btn-lg'%>
+</div>
+<br>
+<div class="loaned">
+  <table id="example" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+    <thead>
+      <tr>
+        <th class="th-sm">Loan Date
+        </th>
+        <th class="th-sm">Due Date
+        </th>
+        <th class="th-sm">Book
+        </th>
+        <th class="th-sm">Borrower
+        </th>
+        <th class="th-sm">Loan State
+        </th>
+        <th class="th-sm">Action
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @loaned.each do |loan| %>
+      <tr class="<%= state(loan) %>" >
+        <td><%= loan.created_at.to_date %>
+        </td>
+        <td><%= loan.due_date %>
+        </td>
+        <td><% loan.book.each do |book| %>
+        <p><%= book.name %> </p>
+        <% end %>
+        </td>
+        <td><%= loan.user.email %>
+        </td>
+        <td><%= loan.loan_state %>
+        </td>
+        <td><%= link_to  "Details", loan_path(loan) %> 
+        </td>
+      </tr>
       <% end %>
-      </td>
-      <td><%= loan.user.email %>
-      </td>
-      <td><%= loan.loan_state %>
-      </td>
-      <td><%= link_to  "Details", loan_path(loan) %> 
-      </td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<%= link_to 'New', new_loan_path%>
+    </tbody>
+  </table>
+</div>
+<br>
+<div class="returned">
+  <table id="example" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+    <thead>
+      <tr>
+        <th class="th-sm">Loan Date
+        </th>
+        <th class="th-sm">Due Date
+        </th>
+        <th class="th-sm">Book
+        </th>
+        <th class="th-sm">Borrower
+        </th>
+        <th class="th-sm">Loan State
+        </th>
+        <th class="th-sm">Action
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @returned.each do |loan| %>
+      <tr class="<%= state(loan) %>" >
+        <td><%= loan.created_at.to_date %>
+        </td>
+        <td><%= loan.due_date %>
+        </td>
+        <td><% loan.book.each do |book| %>
+        <p><%= book.name %> </p>
+        <% end %>
+        </td>
+        <td><%= loan.user.email %>
+        </td>
+        <td><%= loan.loan_state %>
+        </td>
+        <td><%= link_to  "Details", loan_path(loan) %> 
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

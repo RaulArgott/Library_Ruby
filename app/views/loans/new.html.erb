@@ -1,7 +1,15 @@
 <%= bootstrap_form_for(@loan) do |f| %>
-	<%= f.date_field :due_date%>
-	<%= f.select :loan_state, ['Loaned', 'Pending', 'Delayed', 'Returned'] %>
+	<% if @loan.errors.any? %>
+		<h2>Some things you can fix!</h2>
+		<ul>
+		<% @loan.errors.full_messages do |msg| %>
+			<li><%= msg %></li>
+		<% end %>
+		</ul>
+	<% end %>
+	<%= f.date_field :due_date, min: Date.today%>
+	<%= f.hidden_field :loan_state, value: 'Loaned' %>
   <%= f.select :book_ids, @books.collect {|book| [book.code, book.id]}, {}, { multiple: true, class: "selectize" } %>
-	<%= f.select :user, @users.collect {|user| [user.email, user.id]} %>
+	<%= f.select :user_id, @users.collect {|user| [user.email, user.id]} %>
   <%= f.submit %>
 <% end %>

@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   resources :publishers
   resources :authors 
   resources :users_admin, :controller => 'users', except: :create
-  devise_for :users, :controllers => { :registrations => 'registrations'}
+  devise_for :users
   devise_scope :user do
     authenticated :user do
       root 'loans#index', as: :authenticated_root

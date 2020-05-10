@@ -16,7 +16,7 @@ class Book < ApplicationRecord
   validates :language, presence: true
   validates :pages, presence: true
   validates :name, length: {
-    maximum: 30,
+    maximum: 60,
   }
   before_save :upcase_fields
   def upcase_fields
