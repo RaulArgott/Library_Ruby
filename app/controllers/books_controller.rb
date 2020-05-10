@@ -2,7 +2,6 @@ class BooksController < ApplicationController
     
     def index
         @books = all_books
-        flash.now[:notice] = "We have exactly #{@books.size} books available."
     end
     def show
         @book = find_book_id

@@ -1,5 +1,19 @@
-<% @bookshelves.each do |bookshelf| %>
-<p><%= bookshelf.number %> <%= bookshelf.side %>
-  <%= link_to 'Details', bookshelf_path(bookshelf) %></p>
-<% end %>
+<table id="dttb" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+  <thead>
+    <tr>
+      <th>Number</th>
+      <th>Side</th>
+    </tr>
+    </thead>
+    <tbody>
+      <% @bookshelves.each do |bookshelf| %>
+      <tr>
+        <td><%= bookshelf.number %>
+        </td>
+        <td><%= bookshelf.side %>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+</table>
 <%= link_to 'New', new_bookshelf_path%>

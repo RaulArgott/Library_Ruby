@@ -14,7 +14,7 @@
   <%= f.number_field :pages, value: '1', within: 1..2000  %>
   <%= f.number_field :edition, value: '1', within: 1..200%>
   <%= f.select :language , [['English','English'],['Spanish','Spanish']], {include_blank: true , class: "selectize"}%>
-  <%= f.select :bookshelf_id, @bookshelves.collect {|bookshelf| [bookshelf.number, bookshelf.id]}, {include_blank: true , class: "selectize"} %>
+  <%= f.select :bookshelf_id, @bookshelves.collect {|bookshelf| [bookshelf.number.to_s+bookshelf.side, bookshelf.id]}, {include_blank: true , class: "selectize"} %>
   <%= f.number_field :copies, value: '1', within: 1..100  %>
   <%= f.submit %>
 <% end %>

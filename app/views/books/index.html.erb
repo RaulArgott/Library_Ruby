@@ -15,33 +15,22 @@
       </th>
       <th class="th-sm">Publisher
       </th>
-      <th class="th-sm">City
-      </th>
       <th class="th-sm">Updated
-      </th>
-      <th class="th-sm">Action
       </th>
     </tr>
   </thead>
   <tbody>
     <% @books.each do |book| %>
     <tr>
-      <td><%= book.code %>
+      <td><%= link_to book.code, book_path(book)%>
       </td>
-      <td><%= book.name %>
+      <td><%= link_to book.name, book_path(book)%>
       </td>
-      <td><%= book.author.name %> <%= book.author.last_name %>
+      <td><%= link_to book.author.name+" "+book.author.last_name, author_path(book.author) %>
       </td>
-      <td><%= book.publisher.name %>
+      <td><%= book.publisher.name+", "+book.publisher.city%>
       </td>
-      <td><%= book.publisher.city %>
-      </td>
-      <td><%= book.updated_at %>
-      </td>
-      <td><div class="btn-group btn-group-justified" role="group" aria-label="Basic example">
-      <span class="glyphicon glyphicon-edit"></span>
-      <%= link_to 'Edit', edit_book_path(book), class: 'btn btn-primary btn-sm ' %><%= link_to 'See', book_path(book), class: 'btn btn-primary btn-sm ' %>
-      </div>
+      <td><%= book.updated_at.strftime("%D %R") %>
       </td>
     </tr>
     <% end %>

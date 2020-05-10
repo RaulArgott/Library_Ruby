@@ -24,7 +24,7 @@ $(document).on('turbolinks:load', function() {
         });
     });
 
-    $('#book_author').selectize({
+    $('#book_author_id').selectize({
         create: function(input, callback) {
             selectizeCallback = callback;
             $('.author').modal();
@@ -51,7 +51,7 @@ $(document).on('turbolinks:load', function() {
         });
     });
 
-    $('#book_publisher').selectize({
+    $('#book_publisher_id').selectize({
         create: function(input, callback) {
             selectizeCallback = callback;
             $('.publisher').modal();

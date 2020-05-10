@@ -10,7 +10,7 @@
 <%= link_to  fav_text, favourites_update_path(book: @book), id: 'favs_link', remote: true,  data: { turbolinks: false } %>
 <div class="tags"><%= @book.tag.map { |t| t.name }.join(", ") %>
 </div>
-<%= form_for Tag.new, inline: true do |f| %>
+<%= form_for Tag.new do |f| %>
     <div class="form-row">
          <div class="col">
         <%= f.text_field :name, class: 'form-control'%>

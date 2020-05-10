@@ -1,7 +1,5 @@
-<%= form_for(@bookshelf) do |f| %>
-  <%= f.label :number %>
+<%= bootstrap_form_for(@bookshelf) do |f| %>
   <%= f.text_field :number %>
-  <%= f.label :side %>
-  <%= f.text_field :side %>
+  <%= f.select :side, ["A", "B"]%>
   <%= f.submit %>
 <% end %>
