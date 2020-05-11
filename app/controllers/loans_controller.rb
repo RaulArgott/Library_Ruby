@@ -15,6 +15,10 @@ class LoansController < ApplicationController
     def create
         @loan = Loan.new(post_params(:due_date, :loan_state,  :user_id, book_ids: []))
         if @loan.save
+            @loan.book.each do |book|
+                book.available -= 1
+                book.save
+            end
             flash[:alert] = "Book(s) loaned!"
             redirect_to loan_path(@loan)
         else 
