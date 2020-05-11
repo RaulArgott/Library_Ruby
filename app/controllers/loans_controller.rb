@@ -35,7 +35,7 @@ class LoansController < ApplicationController
       
     def update
         @loan = find_loan_id
-        @loan.update(post_params(:name, :city))
+        @loan.update(post_params(:due_date))
         redirect_to loan_path(@loan)
     end
     def destroy

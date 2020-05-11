@@ -1,4 +1,4 @@
-<p><%= @loan.due_date %> <%= @loan.created_at.to_date %> <%= @loan.user.email %> </p> 
+<p>Fecha de vencimiento: <%= @loan.due_date %><br>Día prestado(s): <%= @loan.created_at.to_date %><br>Prestado a: <%= @loan.user.email %></p> 
 
 <table id="example" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
   <thead>
