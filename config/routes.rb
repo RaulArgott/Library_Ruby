@@ -9,6 +9,8 @@ Rails.application.routes.draw do
 
   resources :book_loans
   resources :loans
+  get 'return/:id', to: 'loans#return', as: :return_loan
+ 
   resources :tags
   resources :books
   resources :bookshelves
