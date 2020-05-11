@@ -1,9 +1,5 @@
-<% if current_user.admin %>
   <%= bootstrap_form_for(@bookshelf) do |f| %>
     <%= f.text_field :number %>
     <%= f.select :side, ["A", "B"]%>
     <%= f.submit %>
   <% end %>
-<% else %>
-  <h1>Opcion solo para administradores</h1>
-<% end %>

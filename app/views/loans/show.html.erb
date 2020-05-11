@@ -1,3 +1,4 @@
+<%= link_to 'Atras', loans_path, class: 'btn btn-outline-primary btn-lg' %>
 <p>Fecha de vencimiento: <%= @loan.due_date %></p>
 <p>Día prestado(s): <%= @loan.created_at.to_date %></p>
 <p>Prestado a: <%= @loan.user.email %></p> 
@@ -25,5 +26,3 @@
     <% end %>
   </tbody>
 </table>
- 
-<p> <%= link_to  "Back", loans_path %> </p>

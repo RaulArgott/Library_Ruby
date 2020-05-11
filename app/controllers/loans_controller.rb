@@ -69,6 +69,6 @@ class LoansController < ApplicationController
     def authorize_admin
         return unless !current_user.admin?
         redirect_to loans_path, alert: 'Admins only!'
-     end
+    end
 
 end

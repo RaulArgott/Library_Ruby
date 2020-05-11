@@ -1,4 +1,6 @@
 class BookshelvesController < ApplicationController
+    before_action :authorize_admin, except: [:index, :show]
+
     def index
         @bookshelves = all_bookshelves
     end
@@ -36,5 +38,10 @@ class BookshelvesController < ApplicationController
     end
     def post_params(*args)
         params.require(:bookshelf).permit(*args)
+    end
+
+    def authorize_admin
+        return unless !current_user.admin?
+        redirect_to bookshelves_path, alert: 'Admins only!'
     end
 end

@@ -1,4 +1,5 @@
 class PublishersController < ApplicationController
+    before_action :authorize_admin, except: [:index, :show]
     def index
         @publishers = all_publishers
     end
@@ -39,5 +40,10 @@ class PublishersController < ApplicationController
     end
     def post_params(*args)
         params.require(:publisher).permit(*args)
+    end
+
+    def authorize_admin
+        return unless !current_user.admin?
+        redirect_to publishers_path, alert: 'Admins only!'
     end
 end

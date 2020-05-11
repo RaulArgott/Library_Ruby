@@ -1,4 +1,5 @@
 class AuthorsController < ApplicationController
+    before_action :authorize_admin, except: [:index, :show]
     def index
         @authors = all_authors
         flash.now[:notice] = "We have exactly #{@authors.size} authors available."
@@ -41,5 +42,10 @@ class AuthorsController < ApplicationController
     end
     def post_params(*args)
         params.require(:author).permit(*args)
+    end
+
+    def authorize_admin
+        return unless !current_user.admin?
+        redirect_to authors_path, alert: 'Admins only!'
     end
 end
