@@ -1,5 +1,11 @@
-<% @publishers.each do |publisher| %>
-<p><%= publisher.name %> <%= publisher.city %>
-  <%= link_to 'Details', publisher_path(publisher) %></p>
+<% current_user.admin %>
+  <% @publishers.each do |publisher| %>
+    <p><%= publisher.name %> <%= publisher.city %>
+      <%= link_to 'Details', publisher_path(publisher) %></p>
+    <% end %>
+  <% if current_user.admin %>
+    <%= link_to 'New', new_publisher_path%>
+  <% end %>
+<% else %>
+    <h1>Opcion solo para administradores</h1>
 <% end %>
-<%= link_to 'New', new_publisher_path%>

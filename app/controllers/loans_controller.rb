@@ -35,7 +35,7 @@ class LoansController < ApplicationController
       
     def update
         @loan = find_loan_id
-        @loan.update(post_params(:due_date))
+        @loan.update(post_params(:due_date, :fee, :pay, :days))
         redirect_to loan_path(@loan)
     end
     def destroy
@@ -61,4 +61,10 @@ class LoansController < ApplicationController
         params.require(:loan).permit(*args)
     end
    
+    def multa(loan)
+        if loan.state == 'Delayed'
+           return loan.fee = loan.days * 5.0
+        end
+    end
+
 end

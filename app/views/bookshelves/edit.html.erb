@@ -1,5 +1,9 @@
-<%= form_for(@bookshelf) do |f| %>
-  <%= f.text_field :number, value: @bookshelf.number %>
-  <%= f.text_field :side, value: @bookshelf.side %>
-  <%= f.submit %>
+<% if current_user.admin %>
+  <%= form_for(@bookshelf) do |f| %>
+    <%= f.text_field :number, value: @bookshelf.number %>
+    <%= f.text_field :side, value: @bookshelf.side %>
+    <%= f.submit %>
+  <% end %>
+<% else %>
+  <h1>Opcion para administradores</h1>
 <% end %>

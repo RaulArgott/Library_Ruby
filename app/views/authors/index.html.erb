@@ -5,8 +5,10 @@
       </th>
       <th class="th-sm">Last Name
       </th>
-      <th class="th-sm">Action
-      </th>
+      <% if current_user.admin %>
+        <th class="th-sm">Action
+        </th>
+      <% end %>
     </tr>
   </thead>
   <tbody>
@@ -16,8 +18,10 @@
       </td>
       <td><%= author.last_name%>
       </td>
-      <td><%= link_to 'Edit', edit_author_path(author), class: 'btn btn-primary btn-sm btn-block' %>
-      </td>
+      <% if current_user.admin %>
+        <td><%= link_to 'Edit', edit_author_path(author), class: 'btn btn-primary btn-sm btn-block' %>
+        </td>
+      <% end %>
     </tr>
     <% end %>
   </tbody>

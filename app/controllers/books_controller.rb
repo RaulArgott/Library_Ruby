@@ -1,5 +1,5 @@
 class BooksController < ApplicationController
-    
+before_action :authorize_admin, except: [:index, :show]
     def index
         @books = all_books
     end
@@ -35,6 +35,7 @@ class BooksController < ApplicationController
         @authors = Author.all
         @publishers = Publisher.all
         @bookshelves = Bookshelf.all 
+        
     end    
     def update
         @book = find_book_id
@@ -48,6 +49,7 @@ class BooksController < ApplicationController
             @bookshelves = Bookshelf.all 
             render :edit
         end
+        
     end
     def destroy
         @book = find_book_id
@@ -73,6 +75,12 @@ class BooksController < ApplicationController
     def find_book_id
         Book.find(params[:id])
     end
+
+    def authorize_admin
+        return unless !current_user.admin?
+        redirect_to books_path, alert: 'Admins only!'
+     end
+
     def post_params(*args)
         params.require(:book).permit(*args)
     end

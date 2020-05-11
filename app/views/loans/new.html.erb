@@ -1,15 +1,19 @@
-<%= bootstrap_form_for(@loan) do |f| %>
-	<% if @loan.errors.any? %>
-		<h2>Some things you can fix!</h2>
-		<ul>
-		<% @loan.errors.full_messages do |msg| %>
-			<li><%= msg %></li>
+<% if current_user.admin %>
+	<%= bootstrap_form_for(@loan) do |f| %>
+		<% if @loan.errors.any? %>
+			<h2>Some things you can fix!</h2>
+			<ul>
+			<% @loan.errors.full_messages do |msg| %>
+				<li><%= msg %></li>
+			<% end %>
+			</ul>
 		<% end %>
-		</ul>
+		<%= f.date_field :due_date, min: Date.today%>
+		<%= f.hidden_field :loan_state, value: 'Loaned' %>
+	<%= f.select :book_ids, @books.collect {|book| [book.code, book.id]}, {}, { multiple: true, class: "selectize" } %>
+		<%= f.select :user_id, @users.collect {|user| [user.email, user.id]} %>
+	<%= f.submit %>
 	<% end %>
-	<%= f.date_field :due_date, min: Date.today%>
-	<%= f.hidden_field :loan_state, value: 'Loaned' %>
-  <%= f.select :book_ids, @books.collect {|book| [book.code, book.id]}, {}, { multiple: true, class: "selectize" } %>
-	<%= f.select :user_id, @users.collect {|user| [user.email, user.id]} %>
-  <%= f.submit %>
+<% else %>
+	<h1> Opcion para administradores </h1>
 <% end %>

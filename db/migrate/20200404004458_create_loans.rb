@@ -7,7 +7,7 @@ class CreateLoans < ActiveRecord::Migration[5.1]
       t.date :due_date
       t.date :returned_on
       t.string :loan_state
-
+      
       t.timestamps
     end
   end

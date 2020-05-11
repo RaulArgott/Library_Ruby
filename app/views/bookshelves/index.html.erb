@@ -16,4 +16,6 @@
       <% end %>
     </tbody>
 </table>
-<%= link_to 'New', new_bookshelf_path%>
+<% if current_user.admin %>
+  <%= link_to 'New', new_bookshelf_path %>
+<% end %>
