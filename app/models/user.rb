@@ -4,8 +4,8 @@ class User < ApplicationRecord
   
   has_many :loan
   has_many :favourite
-  validates :email, presence: true
-  validates :email, uniqueness: true
+  validates :email, presence: true, on: :create
+  validates :email, uniqueness: true, on: :create
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
