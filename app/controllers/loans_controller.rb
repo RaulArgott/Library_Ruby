@@ -1,8 +1,13 @@
 class LoansController < ApplicationController
+    before_action :authorize_admin, except: [:index, :show]
     helper_method :state
     def index
-        @loaned = Loan.where.not(loan_state: 'Returned')
-        @returned = Loan.where(loan_state: 'Returned')
+        if current_user.admin
+            @loaned = Loan.where.not(loan_state: 'Returned')
+            @returned = Loan.where(loan_state: 'Returned')
+        else
+            @loaned = Loan.where(user: current_user)
+        end
     end
     def show
         @loan = find_loan_id
@@ -60,11 +65,10 @@ class LoansController < ApplicationController
     def post_params(*args)
         params.require(:loan).permit(*args)
     end
-   
-    def multa(loan)
-        if loan.state == 'Delayed'
-           return loan.fee = loan.days * 5.0
-        end
-    end
+
+    def authorize_admin
+        return unless !current_user.admin?
+        redirect_to loans_path, alert: 'Admins only!'
+     end
 
 end
