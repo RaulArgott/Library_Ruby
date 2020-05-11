@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  fee: 9.99
+  user: one
+  loan: one
+
+two:
+  fee: 9.99
+  user: two
+  loan: two

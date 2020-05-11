@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'penalties/index'
+
   get 'favourites/index'
 
   get 'favourites/update'

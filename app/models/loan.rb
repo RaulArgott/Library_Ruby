@@ -12,8 +12,9 @@ class Loan < ApplicationRecord
     loans = self.all
     today = Date.today    
     loans.each do |loan|   
-      days = (loan.due_date - Date.today).to_i
+      days = (Date.today - loan.due_date).to_i
       if loan.due_date < today then
+        
         loan.loan_state = 'Delayed'
       elsif loan.due_date > today then
         loan.loan_state = 'Loaned'

@@ -1,4 +1,10 @@
-<p>Fecha de vencimiento: <%= @loan.due_date %><br>Día prestado(s): <%= @loan.created_at.to_date %><br>Prestado a: <%= @loan.user.email %></p> 
+<p>Fecha de vencimiento: <%= @loan.due_date %></p>
+<p>Día prestado(s): <%= @loan.created_at.to_date %></p>
+<p>Prestado a: <%= @loan.user.email %></p> 
+<p>State: <%= @loan.loan_state%></p>
+<% if @loan.loan_state == 'Delayed'%>
+<p>Days: <%= (Date.today - @loan.due_date).to_i %></p>
+<% end %>
 
 <table id="example" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
   <thead>
