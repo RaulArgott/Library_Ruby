@@ -21,8 +21,6 @@
         </th>
         <th class="th-sm">Action
         </th>
-        <th class="th-sm">Penalty
-        </th>
       </tr>
     </thead>
     <tbody>
@@ -42,8 +40,6 @@
         </td>
         <td><%= link_to  "Details", loan_path(loan) %> 
         </td>
-        <td><%= loan.fee  %>
-        </td>
       </tr>
       <% end %>
     </tbody>
@@ -58,7 +54,7 @@
       <tr>
         <th class="th-sm">Loan Date
         </th>
-        <th class="th-sm">Due Date
+        <th class="th-sm">Returned on
         </th>
         <th class="th-sm">Book
         </th>
@@ -75,7 +71,7 @@
       <tr class="<%= state(loan) %>" >
         <td><%= loan.created_at.to_date %>
         </td>
-        <td><%= loan.due_date %>
+        <td><%= loan.returned_on %>
         </td>
         <td><% loan.book.each do |book| %>
         <p><%= book.name %> </p>

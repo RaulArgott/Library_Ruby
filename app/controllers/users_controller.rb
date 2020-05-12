@@ -3,9 +3,6 @@ class UsersController < ApplicationController
     def new
         @user = User.new
     end
-    def edit
-        @user = current_user
-    end
     def index
         @users = User.where(admin: false)
         respond_to do |format|

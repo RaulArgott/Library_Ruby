@@ -36,11 +36,14 @@ class LoansController < ApplicationController
     end
     def edit
         @loan = find_loan_id
-    end 
-      
-    def update
+    end       
+    def return
         @loan = find_loan_id
-        @loan.update(post_params(:due_date, :fee, :pay, :days))
+        @loan.book.each do |book|
+            book.available += 1
+            book.save
+        end
+        @loan.update(:returned_on => Date.today, :loan_state => 'Returned')
         redirect_to loan_path(@loan)
     end
     def destroy
