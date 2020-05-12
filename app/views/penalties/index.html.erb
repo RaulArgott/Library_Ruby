@@ -30,7 +30,7 @@
         </td>
         <td><%= number_to_currency(penalty.fee, :unit => "$") %>
         </td>
-        <td><%= link_to  "Details", '#' %> 
+        <td><%= link_to  "Details", penalty_path(penalty) %> 
         </td>
       </tr>
       <% end %>

@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  get 'penalties/index'
+  get 'penalties/:id', to: 'penalties#show', as: :penalty
+
+  get 'penalties', to: 'penalties#index', as: :penalties
 
   get 'favourites/index'
 

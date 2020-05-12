@@ -1,0 +1,7 @@
+<%= link_to  "Atrás", penalties_path, class: 'btn btn-outline-primary' %>
+<br>
+<div class="penaltyData">
+    <p>Prestamo: <%= link_to  @penalty.loan.id, loan_path(@penalty.loan), class: 'btn btn-info' %></p>
+    <p>Cargo: <%= number_to_currency(@penalty.fee, :unit => "$") %></p>
+    <p>Días de recargo: <%= (Date.today - @penalty.loan.due_date).to_i %></p>
+</div>
