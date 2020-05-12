@@ -13,7 +13,7 @@ class Book < ApplicationRecord
   validates :edition, presence: true
   validates :bookshelf_id, presence: true
   validates :genre, presence: true
-  validates :copies, presence: true
+  validates :copies, presence: true, on: :create
   validates :language, presence: true
   validates :pages, presence: true
   validates :name, length: {

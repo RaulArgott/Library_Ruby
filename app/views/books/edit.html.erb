@@ -1,4 +1,4 @@
-<% if current_user.admin %>    
+   
   <%= bootstrap_form_for(@book) do |f| %>
     <% if @book.errors.any? %>
       <h2>Some things you can fix!</h2>
@@ -28,4 +28,3 @@
   <%= render  "books/newpublisher" %>
 <% else %>
   
-<% end %>

@@ -13,7 +13,7 @@ before_action :authorize_admin, except: [:index, :show]
         @authors = Author.all
         @publishers = Publisher.all
         @bookshelves = Bookshelf.all 
-    end
+    end 
     def create        
         @book = Book.new(post_params(:name, :genre, :pages, :edition, :language, :copies, :publisher_id, :author_id, :bookshelf_id))        
         if @book.save
@@ -39,7 +39,7 @@ before_action :authorize_admin, except: [:index, :show]
     end    
     def update
         @book = find_book_id
-        if @book.update(post_params(:name, :genre, :pages, :edition, :language, :copies, :publisher_id, :author_id, :bookshelf_id))
+        if @book.update(post_params(:name, :genre, :pages, :edition, :language, :publisher_id, :author_id, :bookshelf_id))
             flash[:alert] = "¡Libro editado!"  
             redirect_to book_path(@book)
         else 
