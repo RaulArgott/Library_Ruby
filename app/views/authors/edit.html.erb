@@ -1,6 +1,6 @@
 <%= bootstrap_form_for(@author) do |f| %>
-  <%= f.text_field :name, value: @author.name %>
-  <%= f.text_field :last_name, value: @author.last_name %>
-  <%= f.submit %>
-  <%= button_to 'Delete', author_path(@author), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger' %>
+  <%= f.text_field :name, value: @author.name, class: "form-control-lg" %>
+  <%= f.text_field :last_name, value: @author.last_name, class: "form-control-lg" %>
+  <%= f.submit "Modificar", class: "button" %>
+  <%= button_to 'Delete', author_path(@author), method: :delete, data: {confirm: 'Are you sure?'}, class: 'button active' %>
 <% end %>

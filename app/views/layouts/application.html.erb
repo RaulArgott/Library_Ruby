@@ -9,8 +9,6 @@
     <title>Biblioteca UPSLP</title>
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= render 'home/flash' %>
     <% unless user_signed_in? %>
         <%= render 'home/navbar' %>
@@ -27,23 +25,68 @@
   <body>
     <% if user_signed_in? %>
  
-          <div class="container-fluid">
+          <div class="container-fluid ">
             <div class="row">
-                <%= render  "home/sidebar" %>
-             <div role="main" class="col-md-12 ml-sm-auto col-lg-8 products-catagories-area clearfix">
+             <div class="col">
+               <%= render  "home/sidebar" %>
+             </div>   
+             <div role="main" class="col-md-12 ml-sm-auto col-lg-8 products-catagories-area clearfix mr-5 pr-5 ">
               <section class="blog padding2" id="blog" data-scroll-index="4">
                 
                   <div class="row">
 
                     <!-- START BLOG SECTION TITLE -->
                     <div class="text-center">
-                      <h2 class="heading-primary mb-5">Menú en línea</h2>
+                        <%if current_page? (books_path) %>
+                          <h2 class="heading-primary mb-5">Catálogo de Libros</h2>
+                        <%elsif current_page? (loans_path) %>
+                          <h2 class="heading-primary mb-5">Prestamos</h2>
+                        <%elsif current_page? (bookshelves_path) %>
+                          <h2 class="heading-primary mb-5">Libreros</h2>
+                        <%elsif current_page? (authors_path) %>
+                          <h2 class="heading-primary mb-5">Autores</h2>
+                        <%elsif current_page? (publishers_path) %>
+                          <h2 class="heading-primary mb-5">Editoriales</h2>
+                        <%elsif current_page? (users_admin_index_path) %>
+                          <h2 class="heading-primary mb-5">Estudiantes</h2>
+                        <%elsif current_page? (favourites_index_path) %>
+                          <h2 class="heading-primary mb-5">Favoritos</h2>
+                        <%elsif current_page? (edit_user_registration_path) %>
+                          <h2 class="heading-primary mb-5">Editar cuenta</h2>
+                        <%elsif current_page? (root_path)%>
+                          <h2 class="heading-primary mb-5">¿Qué puedes hacer como <% if current_user.admin? %> administrador<%else%>alumno<%end%>?</h2>
+                        <%else%>
+                           <h2 class="heading-primary mb-5">Más Opciones</h2>
+                        <%end%>
                       <p class="mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur,
                       dolores! Iure perspiciatis, minus modi ratione est maiores. Perferendis, porro aperiam.</p>
                     </div>
-                    <div class="blog-list col-lg-12 col-md-6 col-sm-12 mx-auto">
-                      <%= yield %>
-                    </div>
+                      <%if  not current_page? (root_path) and current_user.admin?  %>
+                        <section class="contact col-12 " id="contact" data-scroll-index="5">
+                          <div class="container">
+                            <div class="row">
+                             <div class="contact-form col-lg-12  form">
+
+                                <%= yield %>
+                             </div>
+                           </div>
+                         </div>
+                        </section>
+                      <%elsif current_page? (edit_user_registration_path) %>
+                         <section class="contact col-12 " id="contact" data-scroll-index="5">
+                          <div class="container">
+                            <div class="row">
+                             <div class="contact-form col-lg-12 text-center form">
+
+                              <%= yield %>
+                             </div>
+                           </div>
+                         </div>
+                        </section>
+                      <%else%>
+                        <%= yield %>
+                      <%end%>
+                    
                   </div>
 
               </section>
@@ -60,5 +103,37 @@
       <%=render 'home/footer'%>
     </footer>
 
+
+  <%= javascript_include_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+<%if current_page? (root_path) and not user_signed_in?%>
+  <!-- popper js -->
+  <%= javascript_include_tag "popper.min.js" %>
+  <!-- bootstrap js -->
+  <%= javascript_include_tag "bootstrap.min.js" %>
+  <!-- scrollIt js -->
+  <%= javascript_include_tag "scrollIt.min.js" %>
+  <!-- countTo js -->
+  <%= javascript_include_tag "jquery.countTo.js" %>
+  <!-- filter js -->
+  <%= javascript_include_tag "jquery.filterizr.min.js" %>
+  <!-- waypoints js -->
+  <%= javascript_include_tag "waypoints.min.js" %>
+  <!-- owl carousel js -->
+  <%= javascript_include_tag "owl.carousel.min.js" %>
+  <!-- validator js -->
+  <%= javascript_include_tag "validator.js" %>
+  <!-- maps js -->
+  <%= javascript_include_tag "gmaps.min.js" %>
+  <script src="https://maps.googleapis.com/maps/api/js?v=3&sensor=false"></script>
+  <%= javascript_include_tag "map.js" %>
+  <!-- coustom js -->
+  <%= javascript_include_tag "main.js" %>
+  <!-- lightbox js -->
+  <%= javascript_include_tag "lightbox.js" %>
+<%end%>
+
   </body>
 </html>
+
+

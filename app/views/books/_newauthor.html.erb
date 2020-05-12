@@ -9,10 +9,10 @@
       </div>
       <div class="modal-body">
         <%= bootstrap_form_for Author.new do |f| %>
-          <%= f.text_field :name %>
-          <%= f.text_field :last_name %>
+          <%= f.text_field :name, class: "form-control-lg" %>
+          <%= f.text_field :last_name, class: "form-control-lg" %>
           <div class="modal-footer">
-          <%= f.submit class: "btn btn-secondary" , data: { disable_with: false }%>
+          <%= f.submit "Agregar", class: "button" , data: { disable_with: false }%>
           </div>
         <% end %>
       </div>   

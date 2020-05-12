@@ -6,7 +6,8 @@ class LoansController < ApplicationController
             @loaned = Loan.where.not(loan_state: 'Returned')
             @returned = Loan.where(loan_state: 'Returned')
         else
-            @loaned = Loan.where(user: current_user)
+            
+            @loaned = Loan.search(params[:search],params[:search])
         end
     end
     def show

@@ -1,5 +1,5 @@
   <%= bootstrap_form_for(@bookshelf) do |f| %>
-    <%= f.text_field :number %>
-    <%= f.select :side, ["A", "B"]%>
-    <%= f.submit %>
+    <%= f.text_field :number, class: "form-control-lg" %>
+    <%= f.select :side, ["A", "B"], class: "form-control-lg"%>
+    <%= f.submit "Agregar", class: "button" %>
   <% end %>

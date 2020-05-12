@@ -1,7 +1,10 @@
 class BooksController < ApplicationController
 before_action :authorize_admin, except: [:index, :show]
     def index
-        @books = all_books
+        @books = Book.search(params[:search])
+        #@books = all_books
+
+        flash.now[:notice] = "Tenemos #{@books.size} libros disponibles."
     end
     def show
         @book = find_book_id

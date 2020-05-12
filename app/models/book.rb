@@ -37,4 +37,12 @@ class Book < ApplicationRecord
       Tag.where(name: n.strips).first_or_create!
     end
   end
+  def self.search(search)
+    if search
+       where(["name LIKE ?","%#{search}%"])
+    else
+      all
+    end
+  end
+  
 end

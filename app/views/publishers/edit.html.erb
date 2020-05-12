@@ -1,6 +1,6 @@
 
   <%= bootstrap_form_for(@publisher) do |f| %>
-    <%= f.text_field :name, value: @publisher.name %>
-    <%= f.text_field :city, value: @publisher.city %>
-    <%= f.submit %>
+    <%= f.text_field :name, value: @publisher.name, class: "form-control form-control-lg" %>
+    <%= f.text_field :city, value: @publisher.city, class: "form-control form-control-lg" %>
+    <%= f.submit "Editar", class: "button"%>
   <% end %>
