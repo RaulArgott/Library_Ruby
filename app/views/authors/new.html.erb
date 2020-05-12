@@ -1,6 +1,16 @@
   
-  <%= bootstrap_form_for(@author) do |f| %>
-    <%= f.text_field :name %>
-    <%= f.text_field :last_name %>
-    <%= f.submit %>
+<%= bootstrap_form_for(@author) do |f| %>
+  <% if @author.errors.any? %>
+    <h2>Some things you can fix!</h2>
+    <ul>
+      <% @author.errors.full_messages do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
   <% end %>
+  <%= f.text_field :name %>
+  <%= f.text_field :last_name %>
+  <%= f.submit %>
+<% end %>
+
+  

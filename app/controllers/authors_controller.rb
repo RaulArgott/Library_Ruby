@@ -13,9 +13,13 @@ class AuthorsController < ApplicationController
     def create
         @author = Author.new(post_params(:name, :last_name))
         if @author.save
+            flash[:alert] = "Author created!"
+            #redirect_to publishers_path
             render json: @author
         else
-            render json: {errors: @author.errors.full.messages}
+            flash[:alert] = "Something gone wrong!"
+            render :new
+            #render json: {errors: @author.errors.full.messages}
         end
         
     end

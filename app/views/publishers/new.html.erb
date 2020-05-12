@@ -1,8 +1,17 @@
-
-  <%= form_for(@publisher) do |f| %>
+<%= bootstrap_form_for(@publisher) do |f| %>
+  <% if @publisher.errors.any? %>
+    <h2>Some things you can fix!</h2>
+    <ul>
+      <% @publisher.errors.full_messages do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  <% end %>
+  <!--<%= form_for(@publisher) do |f| %>-->
     <%= f.label :name %>
     <%= f.text_field :name %>
     <%= f.label :city %>
     <%= f.text_field :city %>
     <%= f.submit %>
-  <% end %>
+  <!--<% end %>-->
+<% end %>

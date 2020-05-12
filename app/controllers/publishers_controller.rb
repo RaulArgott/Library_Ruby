@@ -12,9 +12,12 @@ class PublishersController < ApplicationController
     def create
         @publisher = Publisher.new(post_params(:name, :city))
         if @publisher.save
-            render json: @publisher
+            redirect_to publisher_path, notice: "User succesfully created!"
+            #render json: @publisher
         else
-            render json: {errors: @publisher.errors.full.messages}
+            #flash[:alert] = "Something gone wrong!"
+            render :new
+            #render json: {errors: @publisher.errors.full.messages}
         end
     end
     def edit
