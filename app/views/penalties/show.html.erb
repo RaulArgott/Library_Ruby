@@ -4,4 +4,9 @@
     <p>Prestamo: <%= link_to  @penalty.loan.id, loan_path(@penalty.loan), class: 'btn btn-info' %></p>
     <p>Cargo: <%= number_to_currency(@penalty.fee, :unit => "$") %></p>
     <p>Días de recargo: <%= (Date.today - @penalty.loan.due_date).to_i %></p>
+    <% unless @penalty.paid %>
+    <%= link_to  "PAYED", pay_penalty_path(@penalty), class: 'btn btn-outline-danger btn-lg' %>
+    <% else %>
+    <p>PAYED</p>
+    <% end %>
 </div>

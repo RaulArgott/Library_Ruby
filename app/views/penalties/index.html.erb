@@ -14,6 +14,8 @@
         </th>
         <th class="th-sm">Cargo
         </th>
+        <th class="th-sm">Estado
+        </th>
         <th class="th-sm">Accion
         </th>
       </tr>
@@ -29,6 +31,8 @@
         <td><%= penalty.loan.user.email %>
         </td>
         <td><%= number_to_currency(penalty.fee, :unit => "$") %>
+        </td>
+        <td> <%= penalty.paid ? 'PAGADO' : 'PENDIENTE' %>
         </td>
         <td><%= link_to  "Details", penalty_path(penalty) %> 
         </td>

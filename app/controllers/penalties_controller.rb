@@ -11,8 +11,9 @@ class PenaltiesController < ApplicationController
     @penalty = Penalty.find(params[:id])
   end
   def pay
-    # penalty = Penalty.find(params[:id])
-    # penalty.paid = true
-    # penalty.save
+    penalty = Penalty.find(params[:id])
+    penalty.paid = true
+    penalty.save
+    redirect_to penalty_path(penalty)
   end
 end
