@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'favourites/index'
 
   get 'favourites/update'
+  get 'favourites/favunfav/:id', to: 'favourites#favunfav', as: :favunfav
 
   get 'home/index'
 

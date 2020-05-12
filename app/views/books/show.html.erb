@@ -1,14 +1,24 @@
-<%= link_to 'Atras', books_path%>
+<%= link_to 'Atras', books_path, class: 'btn btn-outline-primary' %>
+<br>
 <div class="card">
-  <h5 class="card-header">Data</h5>
-   <div class="card-body">
-<p>Libro: <strong><%= @book.name %></strong> </p>
-<p>Autor: <strong><%= @book.author.last_name %>, <%= @book.author.name %></strong></p>
-<p>Editorial: <strong><%= @book.publisher.name%>, <%= @book.publisher.city%></strong></p>
-<p>Edición: <strong><%= @book.edition %></strong></p>
+    <h5 class="card-header">Datos</h5>
+    <div class="card-body">
+        <p>Libro: <strong><%= @book.name %></strong> </p>
+        <p>Autor: <strong><%= @book.author.last_name %>, <%= @book.author.name %></strong></p>
+        <p>Editorial: <strong><%= @book.publisher.name%>, <%= @book.publisher.city%></strong></p>
+        <p>Edición: <strong><%= @book.edition %></strong></p>
+        <p>Copias disponibles: <%= @book.available %></p>
+        <div class="card">
+            <h5 class="card-header">Localización</h5>
+            <div class="card-body">
+                <p>Estante: #<%= @book.bookshelf.number %></p>
+                <p>Lado: <%= @book.bookshelf.side %></p>
+            </div>
+        </div>
+    </div>
 </div>
-</div>
-<%= link_to  fav_text, favourites_update_path(book: @book), id: 'favs_link', remote: true,  data: { turbolinks: false } %>
+
+<%= link_to  fav_text, favunfav_path(@book), class: 'btn btn-outline-success btn-large' %>
 <div class="tags"><%= @book.tag.map { |t| t.name }.join(", ") %>
 </div>
 <%= form_for Tag.new do |f| %>

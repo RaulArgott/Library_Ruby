@@ -29,10 +29,7 @@
       </td>
       <td><%= book.publisher.city %>
       </td>
-      <td><div class="btn-group btn-group-justified" role="group" aria-label="Basic example">
-      <span class="glyphicon glyphicon-edit"></span>
-      <%= link_to 'Edit', edit_book_path(book), class: 'btn btn-primary btn-sm ' %><%= link_to 'See', book_path(book), class: 'btn btn-primary btn-sm ' %>
-      </div>
+      <td><%= link_to  "See", book_path(book) %>
       </td>
     </tr>
     <% end %>

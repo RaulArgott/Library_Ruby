@@ -2,6 +2,7 @@ class Book < ApplicationRecord
   belongs_to :publisher
   belongs_to :author
   belongs_to :bookshelf
+  has_many :favourite
   has_many :book_tag
   has_many :tag, through: :book_tag
   has_many :book_loan
