@@ -40,10 +40,10 @@ before_action :authorize_admin, except: [:index, :show]
     def update
         @book = find_book_id
         if @book.update(post_params(:name, :genre, :pages, :edition, :language, :copies, :publisher_id, :author_id, :bookshelf_id))
-            flash[:alert] = "Book edited!"  
+            flash[:alert] = "¡Libro editado!"  
             redirect_to book_path(@book)
         else 
-            flash[:alert] = "Something gone wrong!"  
+            flash[:alert] = "¡Algo salió mal!"  
             @authors = Author.all
             @publishers = Publisher.all
             @bookshelves = Bookshelf.all 

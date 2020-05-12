@@ -25,7 +25,8 @@ class PublishersController < ApplicationController
     def update
         @publisher = find_publisher_id
         @publisher.update(post_params(:name, :city))
-        redirect_to publisher_path(@publisher)
+        flash[:alert] = "¡Editorial editado!" 
+        redirect_to publishers_path
     end
     def destroy
         @publisher = find_publisher_id

@@ -1,5 +1,5 @@
 <p><%= @publisher.name %> <%= @publisher.city %></p>
 <% if current_user.admin %>
-    <p><%= link_to 'Edit', edit_publisher_path(@publisher) %>
-    <%= link_to  "Delete", publisher_path(@publisher), method: :delete, data: {confirm: 'Are you sure?'} %> </p>
+    <p><%= link_to 'Edit', edit_publisher_path(@publisher), class: 'btn btn-outline-info'%>
+    <%= link_to  "Delete", publisher_path(@publisher), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-outline-danger' %> </p>
 <% end %>
