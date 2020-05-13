@@ -113,6 +113,7 @@ GEM
       mini_portile2 (~> 2.4.0)
     orm_adapter (0.5.0)
     owlcarousel-rails (2.2.3.5)
+    pg (1.2.3-x86-mingw32)
     popper_js (1.16.0)
     public_suffix (4.0.3)
     puma (3.12.4)
@@ -224,6 +225,7 @@ DEPENDENCIES
   jquery-datatables-rails
   jquery-rails
   owlcarousel-rails (~> 2.2, >= 2.2.3.5)
+  pg (~> 1.1, >= 1.1.4)
   puma (~> 3.7)
   rails (~> 5.1.7)
   sass-rails (~> 5.0)
