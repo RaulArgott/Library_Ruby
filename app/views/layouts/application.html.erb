@@ -58,8 +58,7 @@
                         <%else%>
                            <h2 class="heading-primary mb-5">Más Opciones</h2>
                         <%end%>
-                      <p class="mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur,
-                      dolores! Iure perspiciatis, minus modi ratione est maiores. Perferendis, porro aperiam.</p>
+                      <h2 class="mb-5">Bienvenido <%= current_user.email%></h2>
                     </div>
                       <%if  not current_page? (root_path) and current_user.admin?  %>
                         <section class="contact col-12 " id="contact" data-scroll-index="5">

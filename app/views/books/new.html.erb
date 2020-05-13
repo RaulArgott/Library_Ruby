@@ -8,15 +8,15 @@
         <% end %>
       </ul>
     <% end %>
-    <%= f.text_field :name, class: "form-control-lg" %>
-    <%= f.select :publisher_id, @publishers.collect {|publisher| [publisher.name+", "+publisher.city, publisher.id ]},{include_blank: true , class: "selectize"} %>
-    <%= f.select :author_id, @authors.collect {|author| [author.name+" "+author.last_name, author.id]}, {include_blank: true , class: "selectize"}  %>
-    <%= f.select :genre, ['Fantasy','Adventure','Romance','Contemporary','Dystopian','Mystery','Horror','Thriller','Paranormal','Historical fiction','Science Fiction','Memoir','Cooking','Art','Self-help / Personal Development','Motivational','Health','History','Travel','Guide', 'How-to','Families & Relationships','Humor','Children’s'], {include_blank: true , class: "selectize"}  %>
-    <%= f.number_field :pages, value: '1', within: 1..2000, class: "form-control-lg"  %>
-    <%= f.number_field :edition, value: '1', within: 1..200, class: "form-control-lg"%>
-    <%= f.select :language , [['English','English'],['Spanish','Spanish']], {include_blank: true , class: "selectize"}%>
-    <%= f.select :bookshelf_id, @bookshelves.collect {|bookshelf| [bookshelf.number.to_s+bookshelf.side, bookshelf.id]}, {include_blank: true , class: "selectize"} %>
-    <%= f.number_field :copies, value: '1', within: 1..100, class: "form-control-lg"  %>
+    <%= f.text_field :name, class: "form-control-lg", label: "Nombre"%>
+    <%= f.select :publisher_id, @publishers.collect {|publisher| [publisher.name+", "+publisher.city, publisher.id ]},{include_blank: true , class: "selectize"}, label: "Editorial"%>
+    <%= f.select :author_id, @authors.collect {|author| [author.name+" "+author.last_name, author.id]}, {include_blank: true , class: "selectize"}, label: "Autor"  %>
+    <%= f.select :genre, ['Fantasia','Aventura','Romance','Contemporaneo','Distópico','Misterio','Horror','Suspenso','Paranormal','Ficción histórica','Ciencia ficción','Bibliografia','Cocina','Arte','Autoayuda / Superación personal','Motivacional','Salud','Historia','Viajes','Guias', 'Como se hace?','Familia y relaciones','Humor','Infantil'], {include_blank: true , class: "selectize"}, label: "Genero"  %>
+    <%= f.number_field :pages, value: '1', within: 1..2000, class: "form-control-lg", label: "Páginas"  %>
+    <%= f.number_field :edition, value: '1', within: 1..200, class: "form-control-lg", label: "Edición"%>
+    <%= f.select :language , [['Inglés','Inglés'],['Español','Español']], {include_blank: true , class: "selectize"}, label: "Idioma" %>
+    <%= f.select :bookshelf_id, @bookshelves.collect {|bookshelf| [bookshelf.number.to_s+bookshelf.side, bookshelf.id]}, {include_blank: true , class: "selectize"}, label: "Estante" %>
+    <%= f.number_field :copies, value: '1', within: 1..100, class: "form-control-lg", label: "Copias"  %>
     <%= f.submit "Agregar", class: "button" %>
   <% end %>
 

@@ -2,10 +2,10 @@
 <table class="table table-hover table-bordered" cellspacing="0" width="100%">
     <thead class="thead-dark">
         <tr>
-            <th>User</th>
-            <th>Created at</th>
+            <th>Usuario</th>
+            <th>Creado el</th>
             <th>Admin</th>
-            <th>Action</th>
+            <th>Acción</th>
             
         </tr>
         </thead>
@@ -22,7 +22,7 @@
                     <%= user.admin %>
                 </td>
                 <td>
-                    <%= link_to  "Delete", users_admin_path(user), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-lg btn-danger" %>
+                    <%= link_to  "Borrar", users_admin_path(user), method: :delete, data: { confirm: 'Estas seguro?' }, class: "btn btn-lg btn-danger" %>
                 </td>
             </tr>
             <% end %>

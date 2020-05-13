@@ -2,9 +2,9 @@
 <p>Fecha de vencimiento: <%= @loan.due_date %></p>
 <p>Día prestado(s): <%= @loan.created_at.to_date %></p>
 <p>Prestado a: <%= @loan.user.email %></p> 
-<p>State: <%= @loan.loan_state%></p>
+<p>Estado: <%= @loan.loan_state%></p>
 <% if @loan.loan_state == 'Delayed'%>
-<p>Days: <%= (Date.today - @loan.due_date).to_i %></p>
+<p>Días: <%= (Date.today - @loan.due_date).to_i %></p>
 <% end %>
 <% unless @loan.loan_state == 'Returned' %>
 <%= link_to  "REGRESADO", return_loan_path(@loan), class: 'btn btn-outline-success btn-lg' %><br>
@@ -12,17 +12,13 @@
 <table id="example" class="table table-hover table-bordered table-lg" cellspacing="0" width="100%">
   <thead class="thead-dark">
     <tr>
-      <th class="th-sm">Book
-      <th class="th-sm">Action
-      </th>
+      <th class="th-sm">Libro
     </tr>
   </thead>
   <tbody>
     <% @loan.book.each do |book| %>
     <tr>
       <td><%= book.name %>
-      </td>
-      <td> button
       </td>
     </tr>
     <% end %>

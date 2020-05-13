@@ -12,7 +12,7 @@
     <%= f.text_field :name, value: @book.name, class: "form-control form-control-lg" %>
     <%= f.select :publisher_id, @publishers.collect {|publisher| [publisher.name+" "+publisher.city, publisher.id]}, selected: @book.publisher.id, class: "form-control form-control-lg" %>
     <%= f.select :author_id, @authors.collect {|author| [author.name+" "+author.last_name, author.id]}, selected: @book.author.id, class: "form-control form-control-lg" %>
-    <%= f.select :genre, ['Fantasy','Adventure','Romance','Contemporary','Dystopian','Mystery','Horror','Thriller','Paranormal','Historical fiction','Science Fiction','Memoir','Cooking','Art','Self-help / Personal Development','Motivational','Health','History','Travel','Guide', 'How-to','Families & Relationships','Humor','Children’s'], selected: @book.genre, class: "form-control form-control-lg" %>
+    <%= f.select :genre, ['Fantasia','Aventura','Romance','Contemporaneo','Distópico','Misterio','Horror','Suspenso','Paranormal','Ficción histórica','Ciencia ficción','Bibliografia','Cocina','Arte','Autoayuda / Superación personal','Motivacional','Salud','Historia','Viajes','Guias', 'Como se hace?','Familia y relaciones','Humor','Infantil'], selected: @book.genre, class: "form-control form-control-lg" %>
     <%= f.number_field :pages, value: @book.pages, in: 1...2000, class: "form-control form-control-lg"  %>
     <%= f.number_field :edition, value: @book.edition, in: 1..200, class: "form-control form-control-lg" %>
     <%= f.select :language , ['English','Spanish'], selected: @book.language, class: "form-control form-control-lg" %>

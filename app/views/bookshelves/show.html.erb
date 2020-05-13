@@ -1,5 +1,5 @@
 <%= link_to 'Atras', bookshelves_path, class: 'btn btn-outline-primary btn-lg'%>
 <p><%= @bookshelf.number %> <%= @bookshelf.side %></p>
 <% if current_user.admin %>
-    <p><%= link_to 'Edit', edit_bookshelf_path(@bookshelf) %> <%= link_to  "Delete", bookshelf_path(@bookshelf), method: :delete, data: {confirm: 'Are you sure?'} %> </p>
+    <p><%= link_to 'Editar', edit_bookshelf_path(@bookshelf) %> <%= link_to  "Borrar", bookshelf_path(@bookshelf), method: :delete, data: {confirm: 'Are you sure?'} %> </p>
 <% end %>
