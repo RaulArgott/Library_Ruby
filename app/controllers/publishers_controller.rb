@@ -13,6 +13,7 @@ class PublishersController < ApplicationController
         @publisher = Publisher.new(post_params(:name, :city))
         if @publisher.save
             render json: @publisher
+            Publisher.dedupe
         else
             render json: {errors: @publisher.errors.full.messages}
         end

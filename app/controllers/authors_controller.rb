@@ -13,8 +13,8 @@ class AuthorsController < ApplicationController
     def create
         @author = Author.new(post_params(:name, :last_name))
         if @author.save
-            Author.dedupe
             render json: @author
+            Author.dedupe
         else
             # flash[:alert] = "Something gone wrong!"
             # render :new
