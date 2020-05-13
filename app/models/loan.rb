@@ -12,22 +12,24 @@ class Loan < ApplicationRecord
     loans = self.all
     today = Date.today    
     loans.each do |loan|   
-    days = (Date.today - loan.due_date).to_i
-      if loan.due_date < today then
-        if loan.penalty.nil?
-          penalty = Penalty.new(:fee => 5.0*days , :loan => loan , :user => loan.user)
-          penalty.save
+      days = (Date.today - loan.due_date).to_i
+      unless loan.loan_state == 'Returned'
+        if loan.due_date < today then
+          if loan.penalty.nil?
+            penalty = Penalty.new(:fee => 5.0*days , :loan => loan , :user => loan.user)
+            penalty.save
+          else
+            loan.penalty = Penalty.update(:fee => 5.0*days)
+          end        
+          loan.loan_state = 'Delayed'
+        elsif loan.due_date > today then
+          loan.loan_state = 'Loaned'
         else
-          loan.penalty = Penalty.update(:fee => 5.0*days)
-        end        
-        loan.loan_state = 'Delayed'
-      elsif loan.due_date > today then
-        loan.loan_state = 'Loaned'
-      else
-        loan.loan_state = 'Pending'
+          loan.loan_state = 'Pending'
+        end
+        loan.save
       end
-      loan.save
-    end
+    end      
   end
   def self.search(search,current_user)
 
