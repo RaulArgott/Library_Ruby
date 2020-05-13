@@ -9,7 +9,8 @@
                    <div class="col-md-12">
                      <div class="form-group">
                        <%= f.label :Correo_Electronico %><br />
-                       <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+                       <%= current_user.email %>
+                       <%= f.hidden_field :email, value: current_user.email%>
                      </div>
                    </div>
 
