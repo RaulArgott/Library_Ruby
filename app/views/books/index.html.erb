@@ -22,6 +22,8 @@
         </th>
         <th class="th-sm">Ciudad
         </th>
+        <th class="th-sm">Copias/Disponibles
+        </th>
         <th class="th-sm">Accion
         </th>
       </tr>
@@ -38,6 +40,8 @@
         <td><%= book.publisher.name %>
         </td>
         <td><%= book.publisher.city %>
+        </td>
+        <td><%= book.copies%>/<%= book.available%>
         </td>
         <td><%= link_to 'Editar', edit_book_path(book), class: 'btn btn-primary btn-lg btn-block' %>
         </td>

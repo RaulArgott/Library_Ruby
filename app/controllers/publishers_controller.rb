@@ -14,9 +14,7 @@ class PublishersController < ApplicationController
         if @publisher.save
             render json: @publisher
         else
-            #flash[:alert] = "Something gone wrong!"
-            # render :new
-            #render json: {errors: @publisher.errors.full.messages}
+            render json: {errors: @publisher.errors.full.messages}
         end
     end
     def edit

@@ -97,14 +97,17 @@
                     <%if current_user.admin? %>                                                        
                         <li class="<%if current_page? (books_path) %>active <%end%> nav-link"><%= link_to  "Libros", books_path  %></li>
                         <li class="<%if current_page? (loans_path) %>active <%end%> nav-link"><%= link_to  "Prestamos", loans_path  %></li>
+                        <li class="<%if current_page? (penalties_path) %>active <%end%> nav-link"><%= link_to  "Multas", penalties_path  %></li>
                         <li class="<%if current_page? (bookshelves_path) %>active <%end%> nav-link"><%= link_to  "Estanterias", bookshelves_path  %></li>
                         <li class="<%if current_page? (authors_path) %>active <%end%> nav-link"><%= link_to  "Autores", authors_path  %></li>
                         <li class="<%if current_page? (publishers_path) %>active <%end%> nav-link"><%= link_to  "Editoriales", publishers_path  %></li>
                         <li class="<%if current_page? (users_admin_index_path) %>active <%end%> nav-link"><%= link_to  "Estudiantes", users_admin_index_path  %></li>
+
                     <%else%>
                         <li class="<%if current_page? (books_path) %>active <%end%> nav-link"><%= link_to  "Libros", books_path  %></li>
-                        <li class="<%if current_page? (loans_path) %>active <%end%> nav-link"><%= link_to  "Prestamos", loans_path  %></li>
-                        <li class="<%if current_page? (favourites_index_path) %>active <%end%> nav-link"><%= link_to  "Favoritos", favourites_index_path  %></li>
+                        <li class="<%if current_page? (loans_path) %>active <%end%> nav-link"><%= link_to  "Mis Prestamos", loans_path  %></li>
+                        <li class="<%if current_page? (favourites_index_path) %>active <%end%> nav-link"><%= link_to  "Mis Favoritos", favourites_index_path  %></li>
+                        <li class="<%if current_page? (penalties_path) %>active <%end%> nav-link"><%= link_to  "Mis Multas", penalties_path  %></li>
                     <%end%>
 
                 </ul>
