@@ -188,7 +188,7 @@ button:active {
     right: .6rem;
     bottom: .6rem;
     border-radius: 50%;
-    border: 10px solid rgba(0, 0, 0);
+    border: 10px solid rgba(0, 0, 0, 0);
     border-top-color: #ffd373;
     border-bottom-color: #ffd373;
     animation: spin 800ms linear infinite;
