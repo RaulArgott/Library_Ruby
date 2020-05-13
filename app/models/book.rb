@@ -13,7 +13,7 @@ class Book < ApplicationRecord
   validates :edition, presence: true
   validates :bookshelf_id, presence: true
   validates :genre, presence: true
-  validates :copies, presence: true
+  validates :copies, presence: true, on: :create
   validates :language, presence: true
   validates :pages, presence: true
   validates :name, length: {
@@ -37,4 +37,12 @@ class Book < ApplicationRecord
       Tag.where(name: n.strips).first_or_create!
     end
   end
+  def self.search(search)
+    if search
+       where(["name LIKE ?","%#{search}%"])
+    else
+      all
+    end
+  end
+  
 end

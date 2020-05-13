@@ -29,4 +29,13 @@ class Loan < ApplicationRecord
       loan.save
     end
   end
+  def self.search(search,current_user)
+
+        if search  
+           where(user: current_user)   
+           where(["loan_state LIKE ?","%#{search}%"])
+        else
+          all
+        end
+  end
 end

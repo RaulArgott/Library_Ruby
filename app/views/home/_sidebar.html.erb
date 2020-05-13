@@ -5,6 +5,61 @@
 
     <!-- Search Wrapper Area End -->
 
+    
+
+
+    <div class="search-wrapper section-padding-100">
+        <div class="search-close">
+            <i class="fa fa-close" aria-hidden="true"></i>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="search-content">
+                            <%if current_page? (books_path) %>
+                                <%=form_tag books_path, :method => 'get' do%>
+                                    <%= text_field_tag :search, params[:search], placeholder: "Ingresa el titulo del libro a buscar..." %>
+                                    <button type="submit"><img src="<%= image_path("search.png") %>" alt=""></button>
+                                    <%end%>
+                            <%elsif current_page? (loans_path) %>
+                                    <%=form_tag loans_path, :method => 'get' do%>
+                                    <%= text_field_tag :search, params[:search], placeholder: "Ingresa la multa a buscar..." %>
+                                    <button type="submit"><img src="<%= image_path("search.png") %>" alt=""></button>
+                                    <%end%>
+                            <%elsif current_page? (bookshelves_path) %>
+                                    <%=form_tag bookshelves_path, :method => 'get' do%>
+                                    <%= text_field_tag :search, params[:search], placeholder: "Ingresa el número de la estanteria..." %>
+                                    <button type="submit"><img src="<%= image_path("search.png") %>" alt=""></button>
+                                    <%end%>
+                            <%elsif current_page? (authors_path) %>
+                                    <%=form_tag authors_path, :method => 'get' do%>
+                                    <%= text_field_tag :search, params[:search], placeholder: "Ingresa la nombre del autor a buscar..." %>
+                                    <button type="submit"><img src="<%= image_path("search.png") %>" alt=""></button>
+                                    <%end%>
+                            <%elsif current_page? (publishers_path) %>
+                                    <%=form_tag publishers_path, :method => 'get' do%>
+                                    <%= text_field_tag :search, params[:search], placeholder: "Ingresa la editorial a buscar..." %>
+                                    <button type="submit"><img src="<%= image_path("search.png") %>" alt=""></button>
+                                    <%end%>
+                            <%elsif current_page? (users_admin_index_path) %>
+                                    <%=form_tag users_admin_index_path, :method => 'get' do%>
+                                    <%= text_field_tag :search, params[:search], placeholder: "Ingresa el correo a buscar..." %>
+                                    <button type="submit"><img src="<%= image_path("search.png") %>" alt=""></button>
+                                    <%end%>
+                            <%elsif current_page? (favourites_index_path) %>
+                                <%=form_tag favourites_index_path, :method => 'get' do%>
+                                    <%= text_field_tag :search, params[:search], placeholder: "Ingresa el titulo del libro favorito a buscar..." %>
+                                    <button type="submit"><img src="<%= image_path("search.png") %>" alt=""></button>
+                                    <%end%>
+                            <%end%>                    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Search Wrapper Area End -->
+
     <!-- ##### Main Content Wrapper Start ##### -->
     <div class="main-content-wrapper d-flex clearfix">
 
@@ -12,7 +67,11 @@
         <div class="mobile-nav">
             <!-- Navbar Brand -->
             <div class="amado-navbar-brand">
-                <a href="index.html"><img src="https://img.icons8.com/bubbles/2x/library.png" alt=""></a>
+                <%= link_to root_path do %>
+                    <%= image_tag "https://img.icons8.com/bubbles/2x/library.png"%>
+                <%end%>
+
+                
             </div>
             <!-- Navbar Toggler -->
             <div class="amado-navbar-toggler">
@@ -28,29 +87,36 @@
             </div>
             <!-- Logo -->
             <div class="logo">
-                <a href="index.html"><img src="https://img.icons8.com/bubbles/2x/library.png" alt=""></a>
+                <%= link_to root_path do %>
+                    <%= image_tag "https://img.icons8.com/bubbles/2x/library.png"%>
+                <%end%>
             </div>
             <!-- Amado Nav -->
             <nav class="amado-nav">
                 <ul>
-                    <li><%= link_to  "Libros", books_path  %></li>
-                    <li><%= link_to  "Prestamos", loans_path  %></li>
-                    <li><%= link_to "Multas", penalties_path %>
-                    <li><%= link_to  "Estanterias", bookshelves_path  %></li>
-                    <li><%= link_to  "Autores", authors_path  %></li>
-                    <li><%= link_to  "Editoriales", publishers_path  %></li>
-                    <% if current_user.admin %>
-                    <li><%= link_to  "Estudiantes", users_admin_index_path  %></li>
-                    <% end %>
-                    <li><%= link_to  "Favoritos", favourites_index_path  %></li>
+                    <%if current_user.admin? %>                                                        
+                        <li class="<%if current_page? (books_path) %>active <%end%> nav-link"><%= link_to  "Libros", books_path  %></li>
+                        <li class="<%if current_page? (loans_path) %>active <%end%> nav-link"><%= link_to  "Prestamos", loans_path  %></li>
+                        <li class="<%if current_page? (bookshelves_path) %>active <%end%> nav-link"><%= link_to  "Estanterias", bookshelves_path  %></li>
+                        <li class="<%if current_page? (authors_path) %>active <%end%> nav-link"><%= link_to  "Autores", authors_path  %></li>
+                        <li class="<%if current_page? (publishers_path) %>active <%end%> nav-link"><%= link_to  "Editoriales", publishers_path  %></li>
+                        <li class="<%if current_page? (users_admin_index_path) %>active <%end%> nav-link"><%= link_to  "Estudiantes", users_admin_index_path  %></li>
+                    <%else%>
+                        <li class="<%if current_page? (books_path) %>active <%end%> nav-link"><%= link_to  "Libros", books_path  %></li>
+                        <li class="<%if current_page? (loans_path) %>active <%end%> nav-link"><%= link_to  "Prestamos", loans_path  %></li>
+                        <li class="<%if current_page? (favourites_index_path) %>active <%end%> nav-link"><%= link_to  "Favoritos", favourites_index_path  %></li>
+                    <%end%>
+
                 </ul>
             </nav>
             <!-- Button Group -->
             <div class="amado-btn-group mt-30 mb-100">
                   <%= link_to "Editar Perfil", edit_user_registration_path, class: "btn amado-btn mb-15"  %>
                 <%= link_to "Cerrar Sesión", destroy_user_session_path, class: "btn amado-btn active", method: :delete  %>
-                
+            </br>
+                <%unless current_page? (edit_user_registration_path) or current_page? (root_path) or current_user.admin? or current_page? (favourites_index_path)%>
+                    <button class="search-nav btn amado-btn active">Buscar</button>
+                <%end%>
             </div>
-            
         </header>
       </div>

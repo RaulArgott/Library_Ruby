@@ -1,8 +1,8 @@
 <% if current_user.admin %>
   <%= form_for(@bookshelf) do |f| %>
-    <%= f.text_field :number, value: @bookshelf.number %>
-    <%= f.text_field :side, value: @bookshelf.side %>
-    <%= f.submit %>
+    <%= f.text_field :number, value: @bookshelf.number, class: "form-control-lg" %>
+    <%= f.text_field :side, value: @bookshelf.side, class: "form-control-lg" %>
+    <%= f.submit "Modificar", class: "button"%>
   <% end %>
 <% else %>
   <h1>Opcion para administradores</h1>

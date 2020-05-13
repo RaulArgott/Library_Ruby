@@ -7,9 +7,9 @@
 			<% end %>
 			</ul>
 		<% end %>
-		<%= f.date_field :due_date, min: Date.today%>
-		<%= f.hidden_field :loan_state, value: 'Loaned' %>
+		<%= f.date_field :due_date, min: Date.today,class: "form-control-lg"%>
+		<%= f.hidden_field :loan_state, value: 'Loaned', class: "form-control-lg"%>
 	<%= f.select :book_ids, @books.collect {|book| [book.code, book.id]}, {}, { multiple: true, class: "selectize" } %>
 		<%= f.select :user_id, @users.collect {|user| [user.email, user.id]} %>
-	<%= f.submit %>
+	<%= f.submit "Agregar", class: "button" %>
 <% end %>

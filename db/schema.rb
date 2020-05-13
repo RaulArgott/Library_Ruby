@@ -82,9 +82,6 @@ ActiveRecord::Schema.define(version: 20200511220455) do
     t.string "loan_state"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "pay"
-    t.decimal "fee"
-    t.integer "days"
     t.index ["book_id"], name: "index_loans_on_book_id"
     t.index ["user_id"], name: "index_loans_on_user_id"
   end
