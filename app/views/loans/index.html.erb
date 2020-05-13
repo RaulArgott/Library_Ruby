@@ -51,49 +51,6 @@
       </table>
     </div>
     <br>
-    <% if current_user.admin %>
-    <div class="returned">
-      <h2 class="heading-tertiary mb-3">Returned</h2>
-      <table id="example" class="table table-hover table-bordered" cellspacing="0" width="100%">
-        <thead class="thead-dark">
-          <tr>
-            <th class="th-sm">Loan Date
-            </th>
-            <th class="th-sm">Returned on
-            </th>
-            <th class="th-sm">Book
-            </th>
-            <th class="th-sm">Borrower
-            </th>
-            <th class="th-sm">Loan State
-            </th>
-            <th class="th-sm">Action
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @returned.each do |loan| %>
-          <tr class="<%if loan.loan_state == 'Loaned' %>table-success<%elsif loan.loan_state == 'Pending' %>table-warning<%elsif loan.loan_state == 'Delayed' %>table-danger<%elsif loan.loan_state == 'Returned' %>table-light<%end%>" >
-            <td ><%= loan.created_at.to_date %>
-            </td>
-            <td><%= loan.returned_on %>
-            </td>
-            <td><% loan.book.each do |book| %>
-            <p><%= book.name %> </p>
-            <% end %>
-            </td>
-            <td><%= loan.user.email %>
-            </td>
-            <td><%= loan.loan_state %>
-            </td>
-            <td><%= link_to  "Details", loan_path(loan) %> 
-            </td>
-          </tr>
-          <% end %>
-        </tbody>
-      </table>
-    </div>
-    <% end %>
 <%else%>
   <% @loaned.each do |loan| %>
     <% loan.book.each do |book| %>

@@ -3,8 +3,7 @@ class LoansController < ApplicationController
     helper_method :state
     def index
         if current_user.admin
-            @loaned = Loan.where.not(loan_state: 'Returned')
-            @returned = Loan.where(loan_state: 'Returned')
+            @loaned = Loan.all
         else
             
             @loaned = Loan.search(params[:search],params[:search])
